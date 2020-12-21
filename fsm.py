@@ -53,8 +53,7 @@ class TocMachine(GraphMachine):
         for i, data in enumerate(soup.select('ul.movieList figure a img')):
             if i > 4:
                 break
-            content.append(
-                "https://www.vscinemas.com.tw/vsweb" + data['src'][2:])
+            content.append(data['src'][2:])
             print(content[i])
         for i, data in enumerate(soup.select('section.infoArea a')):
             if i > 4:
@@ -76,7 +75,7 @@ class TocMachine(GraphMachine):
                         "contents": [
                             {
                                 "type": "image",
-                                "url": "https://www.vscinemas.com.tw/vsweb/upload/film/film_20201106001.jpg",
+                                "url": "https://www.vscinemas.com.tw/vsweb"+content[0],
                                 "size": "full",
                                 "aspectRatio": "21:30",
                                 "aspectMode": "fit"
