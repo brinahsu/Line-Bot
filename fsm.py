@@ -60,7 +60,6 @@ class TocMachine(GraphMachine):
                 break
             content.append(
                 "https://www.vscinemas.com.tw/vsweb" + data['src'][2:])
-            print(content[i])
         for i, data in enumerate(soup.select('section.infoArea a')):
             if i > 4:
                 break
@@ -75,44 +74,127 @@ class TocMachine(GraphMachine):
             "contents": [
                 {
                     "type": "bubble",
-                    "hero": {
-                        "type": "image",
-                        "url": content[0],
-                        "size": "full",
-                        "aspectRatio": "21:30",
-                        "aspectMode": "fit"
-                    },
-                    "footer": {
+                    "body": {
                         "type": "box",
                         "layout": "vertical",
                         "contents": [
                             {
-                                "type": "button",
-                                "action": {
-                                    "type": "uri",
-                                    "label": "電影簡介",
-                                    "uri": introduction[0]
-                                },
-                                "color": "#ff005e",
-                                "style": "link"
+                                "type": "image",
+                                "size": "full",
+                                "aspectMode": "cover",
+                                "aspectRatio": "2:3",
+                                "gravity": "top",
+                                "url": content[0]
                             },
                             {
-                                "type": "button",
-                                "action": {
-                                    "type": "postback",
-                                    "label": "電影時刻表",
-                                    "text": name[0]+"時刻表",
-                                    "data": introduction[0]
-                                },
-                                "style": "link"
+                                "type": "box",
+                                "layout": "vertical",
+                                "contents": [
+                                    {
+                                        "type": "box",
+                                        "layout": "vertical",
+                                        "contents": [
+                                            {
+                                                "type": "text",
+                                                "text": name[0],
+                                                "size": "xl",
+                                                "color": "#000000",
+                                                "weight": "bold"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "box",
+                                        "layout": "baseline",
+                                        "contents": [
+                                            {
+                                                "type": "text",
+                                                "color": "#000000",
+                                                "size": "sm",
+                                                "flex": 0,
+                                                "text": english[0]
+                                            }
+                                        ],
+                                        "spacing": "lg"
+                                    },
+                                    {
+                                        "type": "box",
+                                        "layout": "horizontal",
+                                        "contents": [
+                                            {
+                                                "type": "button",
+                                                "action": {
+                                                    "type": "uri",
+                                                    "uri": "http://linecorp.com/",
+                                                    "label": "簡介"
+                                                },
+                                                "margin": "xs",
+                                                "height": "sm",
+                                                "style": "primary",
+                                                "color": "#ff1493"
+                                            },
+                                            {
+                                                "type": "button",
+                                                "action": {
+                                                    "type": "uri",
+                                                    "label": "時刻表",
+                                                    "uri": "http://linecorp.com/"
+                                                },
+                                                "height": "sm",
+                                                "style": "primary",
+                                                "color": "#1e90ff"
+                                            }
+                                        ],
+                                        "borderWidth": "none",
+                                        "cornerRadius": "4px",
+                                        "spacing": "lg",
+                                        "borderColor": "#000000",
+                                        "margin": "md"
+                                    }
+                                ],
+                                "position": "absolute",
+                                "offsetBottom": "0px",
+                                "offsetStart": "0px",
+                                "offsetEnd": "0px",
+                                "backgroundColor": "#ffffffcc",
+                                "paddingAll": "20px",
+                                "paddingTop": "18px",
+                                "height": "130px"
+                            },
+                            {
+                                "type": "box",
+                                "layout": "vertical",
+                                "contents": [
+                                    {
+                                        "type": "text",
+                                        "text": "熱映中",
+                                        "color": "#ffffff",
+                                        "align": "center",
+                                        "size": "xs",
+                                        "offsetTop": "3px"
+                                    }
+                                ],
+                                "position": "absolute",
+                                "cornerRadius": "20px",
+                                "offsetTop": "18px",
+                                "backgroundColor": "#ff334b",
+                                "offsetStart": "18px",
+                                "height": "25px",
+                                "width": "53px"
                             }
                         ],
-                        "backgroundColor": "#ffffffe0",
-                        "borderColor": "#ffffffe0"
+                        "paddingAll": "0px"
                     }
                 },
                 {
                     "type": "bubble",
+                    "hero": {
+                        "type": "image",
+                        "url": content[1],
+                        "size": "full",
+                        "aspectRatio": "21:30",
+                        "aspectMode": "fit"
+                    },
                     "footer": {
                         "type": "box",
                         "layout": "vertical",
@@ -144,6 +226,13 @@ class TocMachine(GraphMachine):
                 },
                 {
                     "type": "bubble",
+                    "hero": {
+                        "type": "image",
+                        "url": content[2],
+                        "size": "full",
+                        "aspectRatio": "21:30",
+                        "aspectMode": "fit"
+                    },
                     "footer": {
                         "type": "box",
                         "layout": "vertical",
@@ -175,6 +264,13 @@ class TocMachine(GraphMachine):
                 },
                 {
                     "type": "bubble",
+                    "hero": {
+                        "type": "image",
+                        "url": content[3],
+                        "size": "full",
+                        "aspectRatio": "21:30",
+                        "aspectMode": "fit"
+                    },
                     "footer": {
                         "type": "box",
                         "layout": "vertical",
@@ -206,6 +302,13 @@ class TocMachine(GraphMachine):
                 },
                 {
                     "type": "bubble",
+                    "hero": {
+                        "type": "image",
+                        "url": content[4],
+                        "size": "full",
+                        "aspectRatio": "21:30",
+                        "aspectMode": "fit"
+                    },
                     "footer": {
                         "type": "box",
                         "layout": "vertical",
