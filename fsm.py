@@ -188,156 +188,461 @@ class TocMachine(GraphMachine):
                 },
                 {
                     "type": "bubble",
-                    "hero": {
-                        "type": "image",
-                        "url": content[1],
-                        "size": "full",
-                        "aspectRatio": "21:30",
-                        "aspectMode": "fit"
-                    },
-                    "footer": {
+                    "body": {
                         "type": "box",
                         "layout": "vertical",
                         "contents": [
                             {
-                                "type": "button",
-                                "action": {
-                                    "type": "uri",
-                                    "label": "電影簡介",
-                                    "uri": introduction[1]
-                                },
-                                "color": "#ff005e",
-                                "style": "link"
+                                "type": "image",
+                                "size": "full",
+                                "aspectMode": "cover",
+                                "aspectRatio": "2:3",
+                                "gravity": "top",
+                                "url": content[1]
                             },
                             {
-                                "type": "button",
-                                "action": {
-                                    "type": "postback",
-                                    "label": "電影時刻表",
-                                    "text": name[1]+"時刻表",
-                                    "data": introduction[1]
-                                },
-                                "style": "link"
+                                "type": "box",
+                                "layout": "vertical",
+                                "contents": [
+                                    {
+                                        "type": "box",
+                                        "layout": "vertical",
+                                        "contents": [
+                                            {
+                                                "type": "text",
+                                                "text": name[1],
+                                                "size": "xl",
+                                                "color": "#000000",
+                                                "weight": "bold"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "box",
+                                        "layout": "baseline",
+                                        "contents": [
+                                            {
+                                                "type": "text",
+                                                "color": "#000000",
+                                                "size": "sm",
+                                                "flex": 0,
+                                                "text": english[1]
+                                            }
+                                        ],
+                                        "spacing": "lg"
+                                    },
+                                    {
+                                        "type": "box",
+                                        "layout": "horizontal",
+                                        "contents": [
+                                            {
+                                                "type": "button",
+                                                "action": {
+                                                    "type": "uri",
+                                                    "uri": "http://linecorp.com/",
+                                                    "label": "簡介"
+                                                },
+                                                "margin": "xs",
+                                                "height": "sm",
+                                                "style": "primary",
+                                                "color": "#ff1493"
+                                            },
+                                            {
+                                                "type": "button",
+                                                "action": {
+                                                    "type": "uri",
+                                                    "label": "時刻表",
+                                                    "uri": "http://linecorp.com/"
+                                                },
+                                                "height": "sm",
+                                                "style": "primary",
+                                                "color": "#1e90ff"
+                                            }
+                                        ],
+                                        "borderWidth": "none",
+                                        "cornerRadius": "4px",
+                                        "spacing": "lg",
+                                        "borderColor": "#000000",
+                                        "margin": "md"
+                                    }
+                                ],
+                                "position": "absolute",
+                                "offsetBottom": "0px",
+                                "offsetStart": "0px",
+                                "offsetEnd": "0px",
+                                "backgroundColor": "#ffffffcc",
+                                "paddingAll": "20px",
+                                "paddingTop": "18px",
+                                "height": "130px"
+                            },
+                            {
+                                "type": "box",
+                                "layout": "vertical",
+                                "contents": [
+                                    {
+                                        "type": "text",
+                                        "text": "熱映中",
+                                        "color": "#ffffff",
+                                        "align": "center",
+                                        "size": "xs",
+                                        "offsetTop": "3px"
+                                    }
+                                ],
+                                "position": "absolute",
+                                "cornerRadius": "20px",
+                                "offsetTop": "18px",
+                                "backgroundColor": "#ff334b",
+                                "offsetStart": "18px",
+                                "height": "25px",
+                                "width": "53px"
                             }
                         ],
-                        "backgroundColor": "#ffffffe0",
-                        "borderColor": "#ffffffe0"
+                        "paddingAll": "0px"
                     }
                 },
                 {
                     "type": "bubble",
-                    "hero": {
-                        "type": "image",
-                        "url": content[2],
-                        "size": "full",
-                        "aspectRatio": "21:30",
-                        "aspectMode": "fit"
-                    },
-                    "footer": {
+                    "body": {
                         "type": "box",
                         "layout": "vertical",
                         "contents": [
                             {
-                                "type": "button",
-                                "action": {
-                                    "type": "uri",
-                                    "label": "電影簡介",
-                                    "uri": introduction[2]
-                                },
-                                "color": "#ff005e",
-                                "style": "link"
+                                "type": "image",
+                                "size": "full",
+                                "aspectMode": "cover",
+                                "aspectRatio": "2:3",
+                                "gravity": "top",
+                                "url": content[2]
                             },
                             {
-                                "type": "button",
-                                "action": {
-                                    "type": "postback",
-                                    "label": "電影時刻表",
-                                    "text": name[2]+"時刻表",
-                                    "data": introduction[2]
-                                },
-                                "style": "link"
+                                "type": "box",
+                                "layout": "vertical",
+                                "contents": [
+                                    {
+                                        "type": "box",
+                                        "layout": "vertical",
+                                        "contents": [
+                                            {
+                                                "type": "text",
+                                                "text": name[2],
+                                                "size": "xl",
+                                                "color": "#000000",
+                                                "weight": "bold"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "box",
+                                        "layout": "baseline",
+                                        "contents": [
+                                            {
+                                                "type": "text",
+                                                "color": "#000000",
+                                                "size": "sm",
+                                                "flex": 0,
+                                                "text": english[2]
+                                            }
+                                        ],
+                                        "spacing": "lg"
+                                    },
+                                    {
+                                        "type": "box",
+                                        "layout": "horizontal",
+                                        "contents": [
+                                            {
+                                                "type": "button",
+                                                "action": {
+                                                    "type": "uri",
+                                                    "uri": "http://linecorp.com/",
+                                                    "label": "簡介"
+                                                },
+                                                "margin": "xs",
+                                                "height": "sm",
+                                                "style": "primary",
+                                                "color": "#ff1493"
+                                            },
+                                            {
+                                                "type": "button",
+                                                "action": {
+                                                    "type": "uri",
+                                                    "label": "時刻表",
+                                                    "uri": "http://linecorp.com/"
+                                                },
+                                                "height": "sm",
+                                                "style": "primary",
+                                                "color": "#1e90ff"
+                                            }
+                                        ],
+                                        "borderWidth": "none",
+                                        "cornerRadius": "4px",
+                                        "spacing": "lg",
+                                        "borderColor": "#000000",
+                                        "margin": "md"
+                                    }
+                                ],
+                                "position": "absolute",
+                                "offsetBottom": "0px",
+                                "offsetStart": "0px",
+                                "offsetEnd": "0px",
+                                "backgroundColor": "#ffffffcc",
+                                "paddingAll": "20px",
+                                "paddingTop": "18px",
+                                "height": "130px"
+                            },
+                            {
+                                "type": "box",
+                                "layout": "vertical",
+                                "contents": [
+                                    {
+                                        "type": "text",
+                                        "text": "熱映中",
+                                        "color": "#ffffff",
+                                        "align": "center",
+                                        "size": "xs",
+                                        "offsetTop": "3px"
+                                    }
+                                ],
+                                "position": "absolute",
+                                "cornerRadius": "20px",
+                                "offsetTop": "18px",
+                                "backgroundColor": "#ff334b",
+                                "offsetStart": "18px",
+                                "height": "25px",
+                                "width": "53px"
                             }
                         ],
-                        "backgroundColor": "#ffffffe0",
-                        "borderColor": "#ffffffe0"
+                        "paddingAll": "0px"
                     }
                 },
                 {
                     "type": "bubble",
-                    "hero": {
-                        "type": "image",
-                        "url": content[3],
-                        "size": "full",
-                        "aspectRatio": "21:30",
-                        "aspectMode": "fit"
-                    },
-                    "footer": {
+                    "body": {
                         "type": "box",
                         "layout": "vertical",
                         "contents": [
                             {
-                                "type": "button",
-                                "action": {
-                                    "type": "uri",
-                                    "label": "電影簡介",
-                                    "uri": introduction[3]
-                                },
-                                "color": "#ff005e",
-                                "style": "link"
+                                "type": "image",
+                                "size": "full",
+                                "aspectMode": "cover",
+                                "aspectRatio": "2:3",
+                                "gravity": "top",
+                                "url": content[3]
                             },
                             {
-                                "type": "button",
-                                "action": {
-                                    "type": "postback",
-                                    "label": "電影時刻表",
-                                    "text": name[3]+"時刻表",
-                                    "data": introduction[3]
-                                },
-                                "style": "link"
+                                "type": "box",
+                                "layout": "vertical",
+                                "contents": [
+                                    {
+                                        "type": "box",
+                                        "layout": "vertical",
+                                        "contents": [
+                                            {
+                                                "type": "text",
+                                                "text": name[3],
+                                                "size": "xl",
+                                                "color": "#000000",
+                                                "weight": "bold"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "box",
+                                        "layout": "baseline",
+                                        "contents": [
+                                            {
+                                                "type": "text",
+                                                "color": "#000000",
+                                                "size": "sm",
+                                                "flex": 0,
+                                                "text": english[3]
+                                            }
+                                        ],
+                                        "spacing": "lg"
+                                    },
+                                    {
+                                        "type": "box",
+                                        "layout": "horizontal",
+                                        "contents": [
+                                            {
+                                                "type": "button",
+                                                "action": {
+                                                    "type": "uri",
+                                                    "uri": "http://linecorp.com/",
+                                                    "label": "簡介"
+                                                },
+                                                "margin": "xs",
+                                                "height": "sm",
+                                                "style": "primary",
+                                                "color": "#ff1493"
+                                            },
+                                            {
+                                                "type": "button",
+                                                "action": {
+                                                    "type": "uri",
+                                                    "label": "時刻表",
+                                                    "uri": "http://linecorp.com/"
+                                                },
+                                                "height": "sm",
+                                                "style": "primary",
+                                                "color": "#1e90ff"
+                                            }
+                                        ],
+                                        "borderWidth": "none",
+                                        "cornerRadius": "4px",
+                                        "spacing": "lg",
+                                        "borderColor": "#000000",
+                                        "margin": "md"
+                                    }
+                                ],
+                                "position": "absolute",
+                                "offsetBottom": "0px",
+                                "offsetStart": "0px",
+                                "offsetEnd": "0px",
+                                "backgroundColor": "#ffffffcc",
+                                "paddingAll": "20px",
+                                "paddingTop": "18px",
+                                "height": "130px"
+                            },
+                            {
+                                "type": "box",
+                                "layout": "vertical",
+                                "contents": [
+                                    {
+                                        "type": "text",
+                                        "text": "熱映中",
+                                        "color": "#ffffff",
+                                        "align": "center",
+                                        "size": "xs",
+                                        "offsetTop": "3px"
+                                    }
+                                ],
+                                "position": "absolute",
+                                "cornerRadius": "20px",
+                                "offsetTop": "18px",
+                                "backgroundColor": "#ff334b",
+                                "offsetStart": "18px",
+                                "height": "25px",
+                                "width": "53px"
                             }
                         ],
-                        "backgroundColor": "#ffffffe0",
-                        "borderColor": "#ffffffe0"
+                        "paddingAll": "0px"
                     }
                 },
                 {
                     "type": "bubble",
-                    "hero": {
-                        "type": "image",
-                        "url": content[4],
-                        "size": "full",
-                        "aspectRatio": "21:30",
-                        "aspectMode": "fit"
-                    },
-                    "footer": {
+                    "body": {
                         "type": "box",
                         "layout": "vertical",
                         "contents": [
                             {
-                                "type": "button",
-                                "action": {
-                                    "type": "uri",
-                                    "label": "電影簡介",
-                                    "uri": introduction[4]
-                                },
-                                "color": "#ff005e",
-                                "style": "link"
+                                "type": "image",
+                                "size": "full",
+                                "aspectMode": "cover",
+                                "aspectRatio": "2:3",
+                                "gravity": "top",
+                                "url": content[4]
                             },
                             {
-                                "type": "button",
-                                "action": {
-                                    "type": "postback",
-                                    "label": "電影時刻表",
-                                    "text": name[4]+"時刻表",
-                                    "data": introduction[4]
-                                },
-                                "style": "link"
+                                "type": "box",
+                                "layout": "vertical",
+                                "contents": [
+                                    {
+                                        "type": "box",
+                                        "layout": "vertical",
+                                        "contents": [
+                                            {
+                                                "type": "text",
+                                                "text": name[4],
+                                                "size": "xl",
+                                                "color": "#000000",
+                                                "weight": "bold"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "box",
+                                        "layout": "baseline",
+                                        "contents": [
+                                            {
+                                                "type": "text",
+                                                "color": "#000000",
+                                                "size": "sm",
+                                                "flex": 0,
+                                                "text": english[4]
+                                            }
+                                        ],
+                                        "spacing": "lg"
+                                    },
+                                    {
+                                        "type": "box",
+                                        "layout": "horizontal",
+                                        "contents": [
+                                            {
+                                                "type": "button",
+                                                "action": {
+                                                    "type": "uri",
+                                                    "uri": "http://linecorp.com/",
+                                                    "label": "簡介"
+                                                },
+                                                "margin": "xs",
+                                                "height": "sm",
+                                                "style": "primary",
+                                                "color": "#ff1493"
+                                            },
+                                            {
+                                                "type": "button",
+                                                "action": {
+                                                    "type": "uri",
+                                                    "label": "時刻表",
+                                                    "uri": "http://linecorp.com/"
+                                                },
+                                                "height": "sm",
+                                                "style": "primary",
+                                                "color": "#1e90ff"
+                                            }
+                                        ],
+                                        "borderWidth": "none",
+                                        "cornerRadius": "4px",
+                                        "spacing": "lg",
+                                        "borderColor": "#000000",
+                                        "margin": "md"
+                                    }
+                                ],
+                                "position": "absolute",
+                                "offsetBottom": "0px",
+                                "offsetStart": "0px",
+                                "offsetEnd": "0px",
+                                "backgroundColor": "#ffffffcc",
+                                "paddingAll": "20px",
+                                "paddingTop": "18px",
+                                "height": "130px"
+                            },
+                            {
+                                "type": "box",
+                                "layout": "vertical",
+                                "contents": [
+                                    {
+                                        "type": "text",
+                                        "text": "熱映中",
+                                        "color": "#ffffff",
+                                        "align": "center",
+                                        "size": "xs",
+                                        "offsetTop": "3px"
+                                    }
+                                ],
+                                "position": "absolute",
+                                "cornerRadius": "20px",
+                                "offsetTop": "18px",
+                                "backgroundColor": "#ff334b",
+                                "offsetStart": "18px",
+                                "height": "25px",
+                                "width": "53px"
                             }
                         ],
-                        "backgroundColor": "#ffffffe0",
-                        "borderColor": "#ffffffe0"
+                        "paddingAll": "0px"
                     }
                 }
+
             ]
         }
         s1 = json.dumps(bubble_string)
