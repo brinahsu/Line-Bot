@@ -111,12 +111,12 @@ def webhook_handler():
 
     # if event is MessageEvent and message is TextMessage, then echo text
     for event in events:
-        if not isinstance(event, MessageEvent):
+        """if not isinstance(event, MessageEvent):
             continue
         if not isinstance(event.message, TextMessage):
             continue
         if not isinstance(event.message.text, str):
-            continue
+            continue"""
         print(f"\nFSM STATE: {machine.state}")
         print(f"REQUEST BODY: \n{body}")
         if machine.state == "user":
