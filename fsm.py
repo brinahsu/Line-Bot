@@ -55,6 +55,7 @@ class TocMachine(GraphMachine):
                 break
             content.append(
                 "https://www.vscinemas.com.tw/vsweb" + data['src'][2:])
+            print(content[i])
         for i, data in enumerate(soup.select('section.infoArea a')):
             if i > 4:
                 break
