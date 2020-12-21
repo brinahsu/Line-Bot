@@ -693,8 +693,8 @@ class TocMachine(GraphMachine):
         soup = BeautifulSoup(data, 'lxml')
         st = ""
         for i, data in enumerate(soup.select('div.bbsArticle p')):
-            print(data)
             st += data.text
+            st += "\n"
             print(data.text)
         send_text_message(reply_token, st)
         self.go_back()
