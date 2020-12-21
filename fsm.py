@@ -1,4 +1,5 @@
 import requests
+import json
 from bs4 import BeautifulSoup
 from transitions.extensions import GraphMachine
 
@@ -289,8 +290,9 @@ class TocMachine(GraphMachine):
             ]
         }
         s1 = json.dumps(bubble_string)
+        s2 = json.loads(s1)
 
-        send_flex_message(reply_token, "hello", s1)
+        send_flex_message(reply_token, "hello", s2)
         self.go_back()
 
     def on_exit_state2(self):
