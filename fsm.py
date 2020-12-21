@@ -694,5 +694,5 @@ class TocMachine(GraphMachine):
         for data in enumerate(soup.select('div.bbsArticle p')):
             st += data.text
             st += "\n"
-        send_text_message(reply_token, st)
+        send_text_message(reply_token, "go to intro")
         self.go_back()
