@@ -34,12 +34,12 @@ machine = TocMachine(
             "dest": "state3",
             "conditions": "is_going_to_state3",
         },
-        """{
-            "trigger": "search",
-            "source": "state2",
-            "dest": "search_table",
-            "conditions": "is_going_to_search_table",
-        },"""
+        # {
+        #   "trigger": "search",
+        #   "source": "state2",
+        #  "dest": "search_table",
+        # "conditions": "is_going_to_search_table",
+        # },
         {
             "trigger": "go_back",
             "source": ["state1", "state2", "state3"],
