@@ -69,6 +69,11 @@ class TocMachine(GraphMachine):
             "contents": [
                 {
                     "type": "bubble",
+                    "hero": {
+                        "type": "box",
+                        "layout": "horizontal",
+                        "contents": []
+                    },
                     "footer": {
                         "type": "box",
                         "layout": "vertical",
