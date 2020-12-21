@@ -76,7 +76,7 @@ class TocMachine(GraphMachine):
                         "contents": [
                             {
                                 "type": "image",
-                                "url": content[0],
+                                "url": "https://www.vscinemas.com.tw/vsweb/upload/film/film_20201106001.jpg",
                                 "size": "full",
                                 "aspectRatio": "21:30",
                                 "aspectMode": "fit"
