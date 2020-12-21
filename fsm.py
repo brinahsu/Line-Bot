@@ -24,8 +24,8 @@ class TocMachine(GraphMachine):
         return text.lower() == "state3"
 
     def is_going_to_search_table(self, event):
-        text = event.text
-        return text.lower() == "時刻表"
+        text = event.message.text
+        return "時刻表" in text.lower()
 
     def on_enter_state1(self, event):
         print("I'm entering state1")
@@ -140,10 +140,9 @@ class TocMachine(GraphMachine):
                                             {
                                                 "type": "button",
                                                 "action": {
-                                                    "type": "postback",
+                                                    "type": "message",
                                                     "label": "時刻表",
-                                                    "text": "時刻表",
-                                                    "data": introduction[1]
+                                                    "text": name[0]+"時刻表",
                                                 },
                                                 "height": "sm",
                                                 "style": "primary",
@@ -255,9 +254,9 @@ class TocMachine(GraphMachine):
                                             {
                                                 "type": "button",
                                                 "action": {
-                                                    "type": "uri",
+                                                    "type": "message",
                                                     "label": "時刻表",
-                                                    "uri": "http://linecorp.com/"
+                                                    "text": name[1]+"時刻表",
                                                 },
                                                 "height": "sm",
                                                 "style": "primary",
@@ -369,9 +368,9 @@ class TocMachine(GraphMachine):
                                             {
                                                 "type": "button",
                                                 "action": {
-                                                    "type": "uri",
+                                                    "type": "message",
                                                     "label": "時刻表",
-                                                    "uri": "http://linecorp.com/"
+                                                    "text": name[2]+"時刻表",
                                                 },
                                                 "height": "sm",
                                                 "style": "primary",
@@ -483,9 +482,9 @@ class TocMachine(GraphMachine):
                                             {
                                                 "type": "button",
                                                 "action": {
-                                                    "type": "uri",
+                                                    "type": "message",
                                                     "label": "時刻表",
-                                                    "uri": "http://linecorp.com/"
+                                                    "text": name[3]+"時刻表",
                                                 },
                                                 "height": "sm",
                                                 "style": "primary",
@@ -597,9 +596,9 @@ class TocMachine(GraphMachine):
                                             {
                                                 "type": "button",
                                                 "action": {
-                                                    "type": "uri",
+                                                    "type": "message",
                                                     "label": "時刻表",
-                                                    "uri": "http://linecorp.com/"
+                                                    "text": name[4]+"時刻表",
                                                 },
                                                 "height": "sm",
                                                 "style": "primary",
