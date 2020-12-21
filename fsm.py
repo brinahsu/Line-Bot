@@ -656,8 +656,8 @@ class TocMachine(GraphMachine):
         send_flex_message(reply_token, "hello", s2)
         # self.go_back()
 
-    def on_exit_state2(self):
-        print("Leaving state2")
+    """def on_exit_state2(self):
+        print("Leaving state2")"""
 
     def on_enter_state3(self, event):
         print("I'm entering state3")
