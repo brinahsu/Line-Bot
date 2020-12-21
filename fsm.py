@@ -27,6 +27,11 @@ class TocMachine(GraphMachine):
         text = event.message.text
         return "時刻表" in text.lower()
 
+    def is_going_to_movie_intro(self, event):
+        print(type(event))
+        text = event.message.text
+        return True
+
     def on_enter_state1(self, event):
         print("I'm entering state1")
 

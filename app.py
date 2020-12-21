@@ -14,7 +14,8 @@ load_dotenv()
 
 
 machine = TocMachine(
-    states=["user", "state1", "state2", "state3", "search_table"],
+    states=["user", "state1", "state2",
+            "state3", "search_table", "movie_intro"],
     transitions=[
         {
             "trigger": "advance",
@@ -35,6 +36,12 @@ machine = TocMachine(
             "conditions": "is_going_to_state3",
         },
         {
+            "trigger": "intro",
+            "source": ["user", "state1", "state2", "state3"],
+            "dest": "movie_intro",
+            "conditions": "is_going_to_movie_intro",
+        },
+        {
             "trigger": "search",
             "source": ["user", "state1", "state2", "state3"],
             "dest": "search_table",
@@ -42,7 +49,7 @@ machine = TocMachine(
         },
         {
             "trigger": "go_back",
-            "source": ["state1", "state2", "state3", "search_table"],
+            "source": ["state1", "state2", "state3", "search_table", "movie_intro"],
             "dest": "user"
         },
 
@@ -123,6 +130,8 @@ def webhook_handler():
             response = machine.advance(event)
         # if machine.state == "state2":
         response = machine.search(event)
+        if machine.state == "state2":
+            response = machine.intro(event)
         if response == False:
             send_text_message(event.reply_token, "Not Entering any State")
 
