@@ -123,7 +123,7 @@ def webhook_handler():
             response = machine.advance(event)
         # if machine.state == "state2":
         response = machine.search(event)
-        else:
+        if response == False:
             send_text_message(event.reply_token, "Not Entering any State")
 
     return "OK"
