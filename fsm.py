@@ -23,9 +23,10 @@ class TocMachine(GraphMachine):
         text = event.message.text
         return text.lower() == "state3"
 
-    """def is_going_to_search_table(self, event):
-        text = event.message.text
-        return text.lower() == "時刻表" """
+    def is_going_to_search_table(self, event):
+        #text = event.message.text
+        print(event)
+        return text.lower() == "時刻表"
 
     def on_enter_state1(self, event):
         print("I'm entering state1")
@@ -669,7 +670,7 @@ class TocMachine(GraphMachine):
     def on_exit_state3(self):
         print("Leaving state3")
 
-    """def on_enter_search_table(self, event):
+    def on_enter_search_table(self, event):
         print("I'm entering search table")
 
         reply_token = event.reply_token
@@ -677,4 +678,4 @@ class TocMachine(GraphMachine):
         self.go_back()
 
     def on_exit_search_table(self):
-        print("Leaving search table")"""
+        print("Leaving search table")
