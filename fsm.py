@@ -655,7 +655,7 @@ class TocMachine(GraphMachine):
         s2 = json.loads(s1)
 
         send_flex_message(reply_token, "hello", s2)
-        self.go_back()
+        # self.go_back()
 
     """def on_exit_state2(self):
         print("Leaving state2")"""
