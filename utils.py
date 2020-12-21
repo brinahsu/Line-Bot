@@ -1,4 +1,5 @@
 import os
+import json
 
 from linebot import LineBotApi, WebhookParser
 from linebot.models import MessageEvent, TextMessage, TextSendMessage
@@ -17,6 +18,14 @@ def send_text_message(reply_token, text):
 def send_sticker_message(reply_token, package_id, sticker_id):
     line_bot_api = LineBotApi(channel_access_token)
     message = StickerSendMessage(package_id=package_id, sticker_id=sticker_id)
+    line_bot_api.reply_message(reply_token, message)
+
+    return "OK"
+
+
+def send_flex_message(reply_token, alt_text, s1):
+    line_bot_api = LineBotApi(channel_access_token)
+    message = FlexSendMessage(alt_text=alt_text, contents=json.loads(s1))
     line_bot_api.reply_message(reply_token, message)
 
     return "OK"
