@@ -30,7 +30,7 @@ class TocMachine(GraphMachine):
     def is_going_to_movie_intro(self, event):
         print(type(event))
         text = event.message.text
-        return True
+        return "簡介" in text.lower()
 
     def on_enter_state1(self, event):
         print("I'm entering state1")
@@ -49,8 +49,6 @@ class TocMachine(GraphMachine):
         url = "https://www.vscinemas.com.tw/vsweb/film/index.aspx"
         request = req.Request(url, headers={
                               "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"})
-        #r = requests.get('https://www.vscinemas.com.tw/vsweb/film/index.aspx')
-        #r.encoding = 'utf-8'
         with req.urlopen(request) as response:
             data = response.read().decode("utf-8")
         soup = BeautifulSoup(data, 'lxml')
@@ -133,9 +131,9 @@ class TocMachine(GraphMachine):
                                             {
                                                 "type": "button",
                                                 "action": {
-                                                    "type": "uri",
-                                                    "uri": introduction[0],
-                                                    "label": "簡介"
+                                                    "type": "message",
+                                                    "label": "簡介",
+                                                    "text": name[0]+"簡介"
                                                 },
                                                 "margin": "xs",
                                                 "height": "sm",
@@ -682,3 +680,19 @@ class TocMachine(GraphMachine):
 
     def on_exit_search_table(self):
         print("Leaving search table")
+
+    def on_enter_movie_intro(self, event):
+        print("I'm entering movie intro")
+
+        reply_token = event.reply_token
+        url = "https://www.vscinemas.com.tw/vsweb/film/detail.aspx?id=4918"
+        request = req.Request(url, headers={
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"})
+        with req.urlopen(request) as response:
+            data = response.read().decode("utf-8")
+        soup = BeautifulSoup(data, 'lxml')
+        for data in enumerate(soup.select('div.bbsArticle p')):
+            st += data.text
+            st += "\n"
+        send_text_message(reply_token, st)
+        self.go_back()
