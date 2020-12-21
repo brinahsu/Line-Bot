@@ -23,6 +23,10 @@ class TocMachine(GraphMachine):
         text = event.message.text
         return text.lower() == "state3"
 
+    def is_going_to_search_table(self, event):
+        text = event.message.text
+        return text.lower() == "時刻表"
+
     def on_enter_state1(self, event):
         print("I'm entering state1")
 
@@ -125,7 +129,7 @@ class TocMachine(GraphMachine):
                                                 "type": "button",
                                                 "action": {
                                                     "type": "uri",
-                                                    "uri": "http://linecorp.com/",
+                                                    "uri": introduction[0],
                                                     "label": "簡介"
                                                 },
                                                 "margin": "xs",
@@ -136,9 +140,10 @@ class TocMachine(GraphMachine):
                                             {
                                                 "type": "button",
                                                 "action": {
-                                                    "type": "uri",
+                                                    "type": "postback",
                                                     "label": "時刻表",
-                                                    "uri": "http://linecorp.com/"
+                                                    "text": name[1]+"時刻表",
+                                                    "data": introduction[1]
                                                 },
                                                 "height": "sm",
                                                 "style": "primary",
@@ -239,7 +244,7 @@ class TocMachine(GraphMachine):
                                                 "type": "button",
                                                 "action": {
                                                     "type": "uri",
-                                                    "uri": "http://linecorp.com/",
+                                                    "uri": introduction[1],
                                                     "label": "簡介"
                                                 },
                                                 "margin": "xs",
@@ -353,7 +358,7 @@ class TocMachine(GraphMachine):
                                                 "type": "button",
                                                 "action": {
                                                     "type": "uri",
-                                                    "uri": "http://linecorp.com/",
+                                                    "uri": introduction[2],
                                                     "label": "簡介"
                                                 },
                                                 "margin": "xs",
@@ -467,7 +472,7 @@ class TocMachine(GraphMachine):
                                                 "type": "button",
                                                 "action": {
                                                     "type": "uri",
-                                                    "uri": "http://linecorp.com/",
+                                                    "uri": introduction[3],
                                                     "label": "簡介"
                                                 },
                                                 "margin": "xs",
@@ -581,7 +586,7 @@ class TocMachine(GraphMachine):
                                                 "type": "button",
                                                 "action": {
                                                     "type": "uri",
-                                                    "uri": "http://linecorp.com/",
+                                                    "uri": introduction[4],
                                                     "label": "簡介"
                                                 },
                                                 "margin": "xs",
@@ -663,3 +668,13 @@ class TocMachine(GraphMachine):
 
     def on_exit_state3(self):
         print("Leaving state3")
+
+    def on_enter_search_table(self, event):
+        print("I'm entering search table")
+
+        reply_token = event.reply_token
+        send_text_message(reply_token, "goto search table")
+        self.go_back()
+
+    def on_exit_search_table(self):
+        print("Leaving search table")
