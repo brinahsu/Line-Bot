@@ -36,7 +36,7 @@ machine = TocMachine(
         },
         {
             "trigger": "search",
-            "source": ["state1", "state2", "state3"],
+            "source": ["user", "state1", "state2", "state3"],
             "dest": "search_table",
             "conditions": "is_going_to_search_table",
         },
