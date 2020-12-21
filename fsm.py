@@ -69,19 +69,6 @@ class TocMachine(GraphMachine):
             "contents": [
                 {
                     "type": "bubble",
-                    "hero": {
-                        "type": "box",
-                        "layout": "horizontal",
-                        "contents": [
-                            {
-                                "type": "image",
-                                "url": "https://www.vscinemas.com.tw/vsweb"+content[0],
-                                "size": "full",
-                                "aspectRatio": "21:30",
-                                "aspectMode": "fit"
-                            }
-                        ]
-                    },
                     "footer": {
                         "type": "box",
                         "layout": "vertical",
@@ -113,19 +100,6 @@ class TocMachine(GraphMachine):
                 },
                 {
                     "type": "bubble",
-                    "hero": {
-                        "type": "box",
-                        "layout": "horizontal",
-                        "contents": [
-                            {
-                                "type": "image",
-                                "url": content[1],
-                                "size": "full",
-                                "aspectRatio": "21:30",
-                                "aspectMode": "fit"
-                            }
-                        ]
-                    },
                     "footer": {
                         "type": "box",
                         "layout": "vertical",
@@ -157,19 +131,6 @@ class TocMachine(GraphMachine):
                 },
                 {
                     "type": "bubble",
-                    "hero": {
-                        "type": "box",
-                        "layout": "horizontal",
-                        "contents": [
-                            {
-                                "type": "image",
-                                "url": content[2],
-                                "size": "full",
-                                "aspectRatio": "21:30",
-                                "aspectMode": "fit"
-                            }
-                        ]
-                    },
                     "footer": {
                         "type": "box",
                         "layout": "vertical",
@@ -201,19 +162,6 @@ class TocMachine(GraphMachine):
                 },
                 {
                     "type": "bubble",
-                    "hero": {
-                        "type": "box",
-                        "layout": "horizontal",
-                        "contents": [
-                            {
-                                "type": "image",
-                                "url": content[3],
-                                "size": "full",
-                                "aspectRatio": "21:30",
-                                "aspectMode": "fit"
-                            }
-                        ]
-                    },
                     "footer": {
                         "type": "box",
                         "layout": "vertical",
@@ -245,19 +193,6 @@ class TocMachine(GraphMachine):
                 },
                 {
                     "type": "bubble",
-                    "hero": {
-                        "type": "box",
-                        "layout": "horizontal",
-                        "contents": [
-                            {
-                                "type": "image",
-                                "url": content[4],
-                                "size": "full",
-                                "aspectRatio": "21:30",
-                                "aspectMode": "fit"
-                            }
-                        ]
-                    },
                     "footer": {
                         "type": "box",
                         "layout": "vertical",
