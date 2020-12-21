@@ -72,6 +72,7 @@ class TocMachine(GraphMachine):
                     "hero": {
                         "type": "box",
                         "layout": "horizontal",
+                        "url": content[0],
                         "contents": []
                     },
                     "footer": {
