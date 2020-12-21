@@ -1,4 +1,5 @@
 -i https://pypi.org/simple
+bs4
 certifi==2019.9.11
 chardet==3.0.4
 click==7.0
@@ -8,6 +9,7 @@ idna==2.8
 itsdangerous==1.1.0
 jinja2==2.10.3
 line-bot-sdk==1.14.0
+lxml
 markupsafe==1.1.1
 pygraphviz==1.5
 python-dotenv==0.10.3
@@ -16,5 +18,3 @@ six==1.12.0
 transitions==0.6.9
 urllib3==1.25.6
 werkzeug==0.16.0
-bs4
-lxml
