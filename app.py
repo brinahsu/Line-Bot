@@ -36,7 +36,7 @@ machine = TocMachine(
         },
         {
             "trigger": "search",
-            "source": "state2",
+            "source": ["state1", "state2", "state3"],
             "dest": "search_table",
             "conditions": "is_going_to_search_table",
         },
@@ -121,8 +121,8 @@ def webhook_handler():
         print(f"REQUEST BODY: \n{body}")
         if machine.state == "user":
             response = machine.advance(event)
-        if machine.state == "state2":
-            response = machine.search(event)
+        # if machine.state == "state2":
+        response = machine.search(event)
         else:
             send_text_message(event.reply_token, "Not Entering any State")
 
