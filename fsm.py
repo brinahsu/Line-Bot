@@ -142,7 +142,7 @@ class TocMachine(GraphMachine):
                                                 "action": {
                                                     "type": "postback",
                                                     "label": "時刻表",
-                                                    "text": name[1]+"時刻表",
+                                                    "text": "時刻表",
                                                     "data": introduction[1]
                                                 },
                                                 "height": "sm",
@@ -654,7 +654,7 @@ class TocMachine(GraphMachine):
         s2 = json.loads(s1)
 
         send_flex_message(reply_token, "hello", s2)
-        self.go_back()
+        # self.go_back()
 
     def on_exit_state2(self):
         print("Leaving state2")
