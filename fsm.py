@@ -24,7 +24,8 @@ class TocMachine(GraphMachine):
         return text.lower() == "state3"
 
     def is_going_to_search_table(self, event):
-        #text = event.message.text
+        text = event.postback.text
+        print("嗨")
         print(event)
         return text.lower() == "時刻表"
 
