@@ -70,10 +70,11 @@ class TocMachine(GraphMachine):
                 {
                     "type": "bubble",
                     "hero": {
-                        "type": "box",
-                        "layout": "horizontal",
+                        "type": "image",
                         "url": content[0],
-                        "contents": []
+                        "size": "full",
+                        "aspectRatio": "21:30",
+                        "aspectMode": "fit"
                     },
                     "footer": {
                         "type": "box",
