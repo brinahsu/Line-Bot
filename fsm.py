@@ -691,8 +691,9 @@ class TocMachine(GraphMachine):
         with req.urlopen(request) as response:
             data = response.read().decode("utf-8")
         soup = BeautifulSoup(data, 'lxml')
+        st = ""
         for data in enumerate(soup.select('div.bbsArticle p')):
             st += data.text
             st += "\n"
-        send_text_message(reply_token, "go to intro")
+        send_text_message(reply_token, st)
         self.go_back()
