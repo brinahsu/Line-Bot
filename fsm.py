@@ -1,5 +1,6 @@
 import requests
 import json
+import urllib.request as req
 from bs4 import BeautifulSoup
 from transitions.extensions import GraphMachine
 
@@ -36,10 +37,14 @@ class TocMachine(GraphMachine):
         print("I'm entering state2")
 
         reply_token = event.reply_token
-
-        r = requests.get('https://www.vscinemas.com.tw/vsweb/film/index.aspx')
-        r.encoding = 'utf-8'
-        soup = BeautifulSoup(r.text, 'lxml')
+        url = "https://www.vscinemas.com.tw/vsweb/film/index.aspx"
+        request = req.Request(url, headers={
+                              "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"})
+        #r = requests.get('https://www.vscinemas.com.tw/vsweb/film/index.aspx')
+        #r.encoding = 'utf-8'
+        with req.urlopen(request) as response:
+            data = response.read().decode("utf-8")
+        soup = BeautifulSoup(data, 'lxml')
         content = []
         column = []
         name = []
@@ -53,7 +58,8 @@ class TocMachine(GraphMachine):
         for i, data in enumerate(soup.select('ul.movieList figure a img')):
             if i > 4:
                 break
-            content.append(data['src'][2:])
+            content.append(
+                "https://www.vscinemas.com.tw/vsweb" + data['src'][2:])
             print(content[i])
         for i, data in enumerate(soup.select('section.infoArea a')):
             if i > 4:
