@@ -28,7 +28,6 @@ class TocMachine(GraphMachine):
         return "時刻表" in text.lower()
 
     def is_going_to_movie_intro(self, event):
-        print(type(event))
         text = event.message.text
         return "簡介" in text.lower()
 
@@ -143,9 +142,10 @@ class TocMachine(GraphMachine):
                                             {
                                                 "type": "button",
                                                 "action": {
-                                                    "type": "message",
+                                                    "type": "postback",
                                                     "label": "時刻表",
                                                     "text": name[0]+"時刻表",
+                                                    "data": introduction[0]
                                                 },
                                                 "height": "sm",
                                                 "style": "primary",
@@ -676,7 +676,7 @@ class TocMachine(GraphMachine):
 
         reply_token = event.reply_token
         send_text_message(reply_token, "goto search table")
-        self.go_back()
+        # self.go_back()
 
     def on_exit_search_table(self):
         print("Leaving search table")
@@ -695,6 +695,5 @@ class TocMachine(GraphMachine):
         for i, data in enumerate(soup.select('div.bbsArticle p')):
             st += data.text
             st += "\n\n"
-            print(data.text)
         send_text_message(reply_token, st)
         self.go_back()
