@@ -147,8 +147,8 @@ def webhook_handler():
         response = machine.intro(event)
         # if "時刻表" not in event.message.text:
 
-    if response == False:
-        send_text_message(event.reply_token, "Not Entering any State")
+    # if response == False:
+    #    send_text_message(event.reply_token, "Not Entering any State")
 
     return "OK"
 

@@ -758,6 +758,43 @@ class TocMachine(GraphMachine):
         print("I'm entering select cinema")
 
         reply_token = event.reply_token
-        place = event.postback.data
+        datas = event.postback.data
+        index = 0
+        action = []
+        for data in datas:
+            # print(title.text)
+            action.append(
+                {
+                    "type": "button",
+                    "action": {
+                        "type": "postback",
+                        "label": data,
+                        "text": data,
+                        "data": index
+                    }
+                }
+            )
+            index = index+1
+        bubble_string = {
+            "type": "bubble",
+            "body": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "請選擇影廳"
+                    }
+                ]
+            },
+            "footer": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": action
+            }
+        }
+        s1 = json.dumps(bubble_string)
+        s2 = json.loads(s1)
+        send_flex_message(reply_token, "hello", s2)
 
-        send_text_message(reply_token, place)
+        send_text_message(reply_token, s2)
