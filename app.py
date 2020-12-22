@@ -120,7 +120,7 @@ def webhook_handler():
     for event in events:
         if isinstance(event, PostbackEvent):
             response = machine.search(event)
-            continue
+            break
         if not isinstance(event, MessageEvent):
             continue
         if not isinstance(event.message, TextMessage):
