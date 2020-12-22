@@ -796,5 +796,3 @@ class TocMachine(GraphMachine):
         s1 = json.dumps(bubble_string)
         s2 = json.loads(s1)
         send_flex_message(reply_token, "hello", s2)
-
-        send_text_message(reply_token, s2)
