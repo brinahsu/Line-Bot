@@ -257,9 +257,10 @@ class TocMachine(GraphMachine):
                                             {
                                                 "type": "button",
                                                 "action": {
-                                                    "type": "message",
+                                                    "type": "postback",
                                                     "label": "時刻表",
                                                     "text": name[1]+"時刻表",
+                                                    "data": introduction[1]
                                                 },
                                                 "height": "sm",
                                                 "style": "primary",
@@ -371,9 +372,10 @@ class TocMachine(GraphMachine):
                                             {
                                                 "type": "button",
                                                 "action": {
-                                                    "type": "message",
+                                                    "type": "postback",
                                                     "label": "時刻表",
                                                     "text": name[2]+"時刻表",
+                                                    "data": introduction[2]
                                                 },
                                                 "height": "sm",
                                                 "style": "primary",
@@ -485,9 +487,10 @@ class TocMachine(GraphMachine):
                                             {
                                                 "type": "button",
                                                 "action": {
-                                                    "type": "message",
+                                                    "type": "postback",
                                                     "label": "時刻表",
                                                     "text": name[3]+"時刻表",
+                                                    "data": introduction[3]
                                                 },
                                                 "height": "sm",
                                                 "style": "primary",
@@ -599,9 +602,10 @@ class TocMachine(GraphMachine):
                                             {
                                                 "type": "button",
                                                 "action": {
-                                                    "type": "message",
+                                                    "type": "postback",
                                                     "label": "時刻表",
                                                     "text": name[4]+"時刻表",
+                                                    "data": introduction[4]
                                                 },
                                                 "height": "sm",
                                                 "style": "primary",
