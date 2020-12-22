@@ -121,6 +121,7 @@ def webhook_handler():
         print(type(event))
         if isinstance(event, PostbackEvent):
             response = machine.search(event)
+            print("herewego")
             break
         if not isinstance(event, MessageEvent):
             continue
