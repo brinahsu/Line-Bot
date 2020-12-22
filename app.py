@@ -15,7 +15,7 @@ load_dotenv()
 
 machine = TocMachine(
     states=["user", "state1", "state2",
-            "state3", "search_table", "movie_intro"],
+            "state3", "search_table", "movie_intro", "select_cinema"],
     transitions=[
         {
             "trigger": "advance",
@@ -37,19 +37,25 @@ machine = TocMachine(
         },
         {
             "trigger": "intro",
-            "source": ["user", "state1", "state2", "state3", "search_table"],
+            "source": ["user", "state1", "state2", "state3", "search_table", "select_cinema"],
             "dest": "movie_intro",
             "conditions": "is_going_to_movie_intro",
         },
         {
             "trigger": "search",
-            "source": ["user", "state1", "state2", "state3", "movie_intro"],
+            "source": ["user", "state1", "state2", "state3", "movie_intro", "select_cinema"],
             "dest": "search_table",
             "conditions": "is_going_to_search_table",
         },
         {
+            "trigger": "select_cinema",
+            "source": ["search_table"],
+            "dest": "select_cinema",
+            "conditions": "is_going_to_select_cinema",
+        },
+        {
             "trigger": "go_back",
-            "source": ["state1", "state2", "state3", "search_table", "movie_intro"],
+            "source": ["state1", "state2", "state3", "search_table", "movie_intro", "select_cinema"],
             "dest": "user"
         },
 
@@ -120,8 +126,11 @@ def webhook_handler():
     for event in events:
         print(type(event))
         if isinstance(event, PostbackEvent):
-            response = machine.search(event)
-            print("herewego")
+            if "https" in event.postback.data:
+                response = machine.search(event)
+            else:
+                response = machine.select_cinema(event)
+            # print("herewego")
             break
         if not isinstance(event, MessageEvent):
             continue
@@ -136,9 +145,10 @@ def webhook_handler():
         # if machine.state == "state2":
         #response = machine.search(event)
         response = machine.intro(event)
-        if "時刻表" not in event.message.text:
-            if response == False:
-                send_text_message(event.reply_token, "Not Entering any State")
+        # if "時刻表" not in event.message.text:
+
+    if response == False:
+        send_text_message(event.reply_token, "Not Entering any State")
 
     return "OK"
 

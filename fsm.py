@@ -31,6 +31,10 @@ class TocMachine(GraphMachine):
         text = event.message.text
         return "簡介" in text.lower()
 
+    def is_going_to_select_cinema(self, event):
+        #text = event.message.text
+        return True
+
     def on_enter_state1(self, event):
         print("I'm entering state1")
 
@@ -686,6 +690,10 @@ class TocMachine(GraphMachine):
         net = []
         action = []
         column = []
+        place = []
+        index = 0
+        for i, data in enumerate(soup.select('ul.versionList ul')):
+            place.append(data.text)
         datas = soup.find_all("a", class_="versionFirst")
         for data in datas:
             # print(title.text)
@@ -698,10 +706,11 @@ class TocMachine(GraphMachine):
                         "type": "postback",
                         "label": data.text,
                         "text": data.text,
-                        "data": data['href']
+                        "data": place[index]
                     }
                 }
             )
+            index = index+1
         bubble_string = {
             "type": "bubble",
             "body": {
@@ -725,8 +734,8 @@ class TocMachine(GraphMachine):
         send_flex_message(reply_token, "hello", s2)
         # self.go_back()
 
-    def on_exit_search_table(self):
-        print("Leaving search table")
+    """def on_exit_search_table(self):
+        print("Leaving search table")"""
 
     def on_enter_movie_intro(self, event):
         print("I'm entering movie intro")
@@ -744,3 +753,11 @@ class TocMachine(GraphMachine):
             st += "\n\n"
         send_text_message(reply_token, st)
         self.go_back()
+
+    def on_enter_select_cinema(self, event):
+        print("I'm entering select cinema")
+
+        reply_token = event.reply_token
+        place = event.postback.data
+
+        send_text_message(reply_token, place)
