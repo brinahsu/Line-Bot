@@ -133,8 +133,7 @@ def webhook_handler():
             response = machine.advance(event)
         # if machine.state == "state2":
         #response = machine.search(event)
-        if machine.state == "state2":
-            response = machine.intro(event)
+        response = machine.intro(event)
         if response == False:
             send_text_message(event.reply_token, "Not Entering any State")
 
