@@ -675,7 +675,7 @@ class TocMachine(GraphMachine):
         print("I'm entering search table")
 
         reply_token = event.reply_token
-        r = requests.get(event.data)
+        r = requests.get(event.postback.data)
         r.encoding = 'utf-8'
         soup = BeautifulSoup(r.text, 'lxml')
         content = []
