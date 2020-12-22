@@ -675,7 +675,50 @@ class TocMachine(GraphMachine):
         print("I'm entering search table")
 
         reply_token = event.reply_token
-        send_text_message(reply_token, "goto search table")
+        r = requests.get(event.data)
+        r.encoding = 'utf-8'
+        soup = BeautifulSoup(r.text, 'lxml')
+        content = []
+        net = []
+        action = []
+        column = []
+        datas = soup.find_all("a", class_="versionFirst")
+        for data in datas:
+            # print(title.text)
+            content.append(data.text)
+            net.append(data['href'])
+            action.append(
+                {
+                    "type": "button",
+                    "action": {
+                        "type": "postback",
+                        "label": data.text,
+                        "text": data.text,
+                        "data": data['href']
+                    }
+                }
+            )
+        bubble_string = {
+            "type": "bubble",
+            "body": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "請選擇放映版本"
+                    }
+                ]
+            },
+            "footer": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": action
+            }
+        }
+        s1 = json.dumps(bubble_string)
+        s2 = json.loads(s1)
+        send_flex_message(reply_token, "hello", s2)
         # self.go_back()
 
     def on_exit_search_table(self):
