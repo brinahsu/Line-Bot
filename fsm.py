@@ -763,7 +763,7 @@ class TocMachine(GraphMachine):
         index = 0
         action = []
         for data in places:
-            # print(title.text)
+            print(index)
             if data == "":
                 continue
             action.append(
