@@ -777,6 +777,7 @@ class TocMachine(GraphMachine):
         for data in datas:
             ref = []
             ref = data.split('#')
+            print(data)
             print(ref)
             action.append(
                 {
