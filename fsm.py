@@ -24,7 +24,7 @@ class TocMachine(GraphMachine):
         return text.lower() == "state3"
 
     def is_going_to_search_table(self, event):
-        #text = event.message.text
+        # text = event.message.text
         return True
 
     def is_going_to_movie_intro(self, event):
@@ -32,7 +32,7 @@ class TocMachine(GraphMachine):
         return "簡介" in text.lower()
 
     def is_going_to_select_cinema(self, event):
-        #text = event.message.text
+        # text = event.message.text
         return True
 
     def on_enter_state1(self, event):
@@ -779,18 +779,19 @@ class TocMachine(GraphMachine):
             ref = data.split('#')
             print(data)
             print(ref)
+            print(len(ref)
             action.append(
                 {
                     "type": "button",
                     "action": {
                         "type": "message",
                         "label": ref[0],
-                        "text": ref[1]
+                        "text": ref[0]
                         # "data": ref[1]
                     }
                 }
             )
-        bubble_string = {
+        bubble_string={
             "type": "bubble",
             "body": {
                 "type": "box",
@@ -808,6 +809,6 @@ class TocMachine(GraphMachine):
                 "contents": action
             }
         }
-        s1 = json.dumps(bubble_string)
-        s2 = json.loads(s1)
+        s1=json.dumps(bubble_string)
+        s2=json.loads(s1)
         send_flex_message(reply_token, "hello", s2)
