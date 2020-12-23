@@ -709,7 +709,7 @@ class TocMachine(GraphMachine):
             for i in places:
                 if i == "":
                     continue
-                pack += (i+ref[k]+"\n")
+                pack += (i+ref[k][0]+ref[k][10:]+"\n")
                 k = k+1
             print(pack)
             net.append(data['href'])
