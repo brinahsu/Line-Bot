@@ -703,10 +703,10 @@ class TocMachine(GraphMachine):
                 {
                     "type": "button",
                     "action": {
-                        "type": "postback",
+                        "type": "message",
                         "label": data.text,
-                        "text": data.text,
-                        "data": place[index]
+                        "text": data.text
+                        # "data": place[index]
                     }
                 }
             )
