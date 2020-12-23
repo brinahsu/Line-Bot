@@ -759,7 +759,7 @@ class TocMachine(GraphMachine):
 
         reply_token = event.reply_token
         datas = event.postback.data
-        place = data.split("\n")
+        place = datas.split("\n")
         print(place[0])
         index = 0
         action = []
