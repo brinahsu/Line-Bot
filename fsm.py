@@ -779,7 +779,7 @@ class TocMachine(GraphMachine):
             ref = data.split('#')
             print(data)
             print(ref)
-            print(len(ref)
+            print(len(ref))
             action.append(
                 {
                     "type": "button",
@@ -791,7 +791,7 @@ class TocMachine(GraphMachine):
                     }
                 }
             )
-        bubble_string={
+        bubble_string = {
             "type": "bubble",
             "body": {
                 "type": "box",
@@ -809,6 +809,6 @@ class TocMachine(GraphMachine):
                 "contents": action
             }
         }
-        s1=json.dumps(bubble_string)
-        s2=json.loads(s1)
+        s1 = json.dumps(bubble_string)
+        s2 = json.loads(s1)
         send_flex_message(reply_token, "hello", s2)
