@@ -779,14 +779,16 @@ class TocMachine(GraphMachine):
             ref = data.split('#')
             print(data)
             print(ref[0])
+            a = ref[0]
             print(ref[1])
+            b = ref[1]
             action.append(
                 {
                     "type": "button",
                     "action": {
                         "type": "message",
-                        "label": ref[0],
-                        "text": ref[0]
+                        "label": a,
+                        "text": b
                         # "data": ref[1]
                     }
                 }
