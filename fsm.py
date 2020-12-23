@@ -788,7 +788,6 @@ class TocMachine(GraphMachine):
                     }
                 }
             )
-            index = index+1
         bubble_string = {
             "type": "bubble",
             "body": {
