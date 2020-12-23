@@ -773,6 +773,8 @@ class TocMachine(GraphMachine):
         reply_token = event.reply_token
         action = []
         datas = []
+        a = ""
+        b = ""
         datas = event.postback.data.split("\n")
         for data in datas:
             ref = []
