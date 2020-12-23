@@ -777,6 +777,8 @@ class TocMachine(GraphMachine):
         b = ""
         datas = event.postback.data.split("\n")
         for data in datas:
+            if data == "":
+                continue
             ref = []
             ref = data.split('#')
             print(data)
