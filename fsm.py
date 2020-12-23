@@ -778,8 +778,8 @@ class TocMachine(GraphMachine):
             ref = []
             ref = data.split('#')
             print(data)
-            print(ref)
-            print(len(ref))
+            print(ref[0])
+            print(ref[1])
             action.append(
                 {
                     "type": "button",
