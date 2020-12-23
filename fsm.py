@@ -776,7 +776,8 @@ class TocMachine(GraphMachine):
         datas = event.postback.data.split("\n")
         for data in datas:
             ref = []
-            ref = data.split("#")
+            ref = data.split('#')
+            print(ref)
             action.append(
                 {
                     "type": "button",
