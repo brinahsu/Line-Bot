@@ -698,19 +698,18 @@ class TocMachine(GraphMachine):
             place.append(data.text)
         for i, data in enumerate(soup.select('ul.versionList li ul li p a')):
             ref.append(data['href'])
-
         k = 0
 
         datas = soup.find_all("a", class_="versionFirst")
         for data in datas:
             # print(title.text)
-            pack = []
+            pack = ""
             content.append(data.text)
             places = place[index].split('\n')
             for i in places:
                 if i == "":
                     continue
-                pack.append(i+ref[k])
+                pack += (i+ref[k]+"\n")
                 k = k+1
             print(pack)
             net.append(data['href'])
@@ -771,26 +770,21 @@ class TocMachine(GraphMachine):
 
     def on_enter_select_cinema(self, event):
         print("I'm entering select cinema")
-
         reply_token = event.reply_token
-        datas = event.postback.data
-        places = datas.split('\n')
-        ref = places[0]
-        places = places[1:]
-        index = 0
         action = []
-        for data in places:
-            print(index)
-            if data == "":
-                continue
+        datas = []
+        datas = event.postback.data.split("\n")
+        for data in datas:
+            ref = []
+            ref = data.split("#")
             action.append(
                 {
                     "type": "button",
                     "action": {
                         "type": "message",
-                        "label": data,
-                        "text": ref,
-                        "data": ref
+                        "label": ref[0],
+                        "text": ref[1]
+                        # "data": ref[1]
                     }
                 }
             )
