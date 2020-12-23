@@ -759,12 +759,13 @@ class TocMachine(GraphMachine):
 
         reply_token = event.reply_token
         datas = event.postback.data
-        place = datas.split("\n")
-        print(place[0])
+        places = datas.split('\n')
         index = 0
         action = []
-        for data in place:
+        for data in places:
             # print(title.text)
+            if data == "":
+                continue
             action.append(
                 {
                     "type": "button",
