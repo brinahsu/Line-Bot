@@ -692,14 +692,27 @@ class TocMachine(GraphMachine):
         column = []
         place = []
         ref = []
+
         index = 0
         for i, data in enumerate(soup.select('ul.versionList ul')):
             place.append(data.text)
-            ref.append(data.li.p.a['href'][1:])
+        for i, data in enumerate(soup.select('ul.versionList li ul li p a')):
+            ref.append(data['href'])
+
+        k = 0
+
         datas = soup.find_all("a", class_="versionFirst")
         for data in datas:
             # print(title.text)
+            pack = []
             content.append(data.text)
+            places = place[index].split('\n')
+            for i in places:
+                if i == "":
+                    continue
+                pack.append(i+ref[k])
+                k = k+1
+            print(pack)
             net.append(data['href'])
             action.append(
                 {
@@ -707,8 +720,8 @@ class TocMachine(GraphMachine):
                     "action": {
                         "type": "postback",
                         "label": data.text,
-                        "text": ref[index]+place[index],
-                        "data": ref[index]+place[index]
+                        "text": data.text,
+                        "data": pack
                     }
                 }
             )
