@@ -132,10 +132,11 @@ def webhook_handler():
     for event in events:
         print(type(event))
         if isinstance(event, PostbackEvent):
-            if "detail" in event.postback.data:
-                response = machine.search(event)
-            elif "#" in event.postback.data:
+
+            if "#" in event.postback.data:
                 response = machine.select_cinema(event)
+            elif "detail" in event.postback.data:
+                response = machine.search(event)
             else:
                 response = machine.time(event)
             # print("herewego")

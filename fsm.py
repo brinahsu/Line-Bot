@@ -724,7 +724,7 @@ class TocMachine(GraphMachine):
                         "type": "postback",
                         "label": data.text,
                         "text": data.text,
-                        "data": pack
+                        "data": pack+event.postback.data
                     }
                 }
             )
@@ -780,7 +780,7 @@ class TocMachine(GraphMachine):
         a = ""
         b = ""
         datas = event.postback.data.split("\n")
-        for data in datas:
+        for data in datas[:-1]:
             if data == "":
                 continue
             ref = []
@@ -791,8 +791,8 @@ class TocMachine(GraphMachine):
                     "action": {
                         "type": "postback",
                         "label": ref[0],
-                        "text": ref[1],
-                        "data": ref[1]
+                        "text": ref[1]+datas[-1],
+                        "data": ref[1]+datas[-1]
                     }
                 }
             )
