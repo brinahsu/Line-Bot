@@ -779,8 +779,6 @@ class TocMachine(GraphMachine):
         action = []
         datas = []
         content = []
-        a = ""
-        b = ""
         pic = [
             "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2luZW1hfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60",
             "https://images.unsplash.com/photo-1585331505473-7586f9cb0854?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTZ8fGNpbmVtYXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60",
@@ -807,8 +805,10 @@ class TocMachine(GraphMachine):
                     "style": "secondary"
                 }
             )
+        k = 0
         for i, data in enumerate(action):
             if i % 3 == 0:
+
                 if (i+3) > len(action):
                     end = len(action)
                 else:
@@ -826,7 +826,7 @@ class TocMachine(GraphMachine):
                                     "contents": [
                                         {
                                             "type": "image",
-                                            "url": pic[i//3],
+                                            "url": pic[k],
                                             "size": "full",
                                             "aspectMode": "fit",
                                             "aspectRatio": "150:100",
@@ -875,6 +875,7 @@ class TocMachine(GraphMachine):
                         }
                     }
                 )
+                k = k+1
         bubble_string = {
             "type": "carousel",
             "contents": content
