@@ -778,6 +778,7 @@ class TocMachine(GraphMachine):
         reply_token = event.reply_token
         action = []
         datas = []
+        content = []
         a = ""
         b = ""
         datas = event.postback.data.split("\n")
@@ -794,26 +795,82 @@ class TocMachine(GraphMachine):
                         "label": ref[0],
                         "text": ref[0],
                         "data": ref[1]+datas[-1]  # movieTime+movie id
-                    }
+                    },
+                    "color": "#ffffff",
+                    "style": "secondary"
                 }
             )
-        bubble_string = {
-            "type": "bubble",
-            "body": {
-                "type": "box",
-                "layout": "vertical",
-                "contents": [
+        for i, data in enumerate(action):
+            if i % 3 == 0:
+                if (i+3) > len(action):
+                    end = len(action)
+                else:
+                    end = i+3
+                content.append(
                     {
-                        "type": "text",
-                        "text": "請選擇影廳"
+                        "type": "bubble",
+                        "header": {
+                            "type": "box",
+                            "layout": "vertical",
+                            "contents": [
+                                {
+                                    "type": "box",
+                                    "layout": "vertical",
+                                    "contents": [
+                                        {
+                                            "type": "image",
+                                            "url": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2luZW1hfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60",
+                                            "size": "full",
+                                            "aspectMode": "fit",
+                                            "aspectRatio": "150:100",
+                                            "gravity": "center",
+                                            "flex": 1
+                                        }
+                                    ]
+                                }
+                            ],
+                            "paddingAll": "0px"
+                        },
+                        "body": {
+                            "type": "box",
+                            "layout": "vertical",
+                            "contents": [
+                                {
+                                    "type": "box",
+                                    "layout": "vertical",
+                                    "contents": [
+                                        {
+                                            "type": "text",
+                                            "contents": [],
+                                            "size": "xl",
+                                            "text": "請選擇影廳",
+                                            "color": "#ffffff",
+                                            "weight": "bold",
+                                            "gravity": "top"
+                                        },
+                                        {
+                                            "type": "box",
+                                            "layout": "baseline",
+                                            "contents": [],
+                                            "margin": "xl"
+                                        },
+                                        {
+                                            "type": "box",
+                                            "layout": "vertical",
+                                            "contents": action[i:end],
+                                            "spacing": "sm"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "paddingAll": "20px",
+                            "backgroundColor": "#611529"
+                        }
                     }
-                ]
-            },
-            "footer": {
-                "type": "box",
-                "layout": "vertical",
-                "contents": action
-            }
+                )
+        bubble_string = {
+            "type": "carousel",
+            "contents": content
         }
         s1 = json.dumps(bubble_string)
         s2 = json.loads(s1)
