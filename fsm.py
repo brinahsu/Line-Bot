@@ -782,7 +782,7 @@ class TocMachine(GraphMachine):
                                             "type": "text",
                                             "contents": [],
                                             "size": "xl",
-                                            "text": "請選擇影廳",
+                                            "text": "請選擇放映版本",
                                             "color": "#ffffff",
                                             "weight": "bold",
                                             "gravity": "top"
@@ -803,7 +803,7 @@ class TocMachine(GraphMachine):
                                 }
                             ],
                             "paddingAll": "20px",
-                            "backgroundColor": "#611529"
+                            "backgroundColor": "#296616"
                         }
                     }
                 )
