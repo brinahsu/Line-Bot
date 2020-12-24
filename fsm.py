@@ -252,9 +252,9 @@ class TocMachine(GraphMachine):
                                             {
                                                 "type": "button",
                                                 "action": {
-                                                    "type": "uri",
-                                                    "uri": introduction[1],
-                                                    "label": "簡介"
+                                                    "type": "message",
+                                                    "label": "簡介",
+                                                    "text": name[1]+"簡介"
                                                 },
                                                 "margin": "xs",
                                                 "height": "sm",
@@ -367,9 +367,9 @@ class TocMachine(GraphMachine):
                                             {
                                                 "type": "button",
                                                 "action": {
-                                                    "type": "uri",
-                                                    "uri": introduction[2],
-                                                    "label": "簡介"
+                                                    "type": "message",
+                                                    "label": "簡介",
+                                                    "text": name[2]+"簡介"
                                                 },
                                                 "margin": "xs",
                                                 "height": "sm",
@@ -482,9 +482,9 @@ class TocMachine(GraphMachine):
                                             {
                                                 "type": "button",
                                                 "action": {
-                                                    "type": "uri",
-                                                    "uri": introduction[3],
-                                                    "label": "簡介"
+                                                    "type": "message",
+                                                    "label": "簡介",
+                                                    "text": name[3]+"簡介"
                                                 },
                                                 "margin": "xs",
                                                 "height": "sm",
@@ -597,9 +597,9 @@ class TocMachine(GraphMachine):
                                             {
                                                 "type": "button",
                                                 "action": {
-                                                    "type": "uri",
-                                                    "uri": introduction[4],
-                                                    "label": "簡介"
+                                                    "type": "message",
+                                                    "label": "簡介",
+                                                    "text": name[4]+"簡介"
                                                 },
                                                 "margin": "xs",
                                                 "height": "sm",
