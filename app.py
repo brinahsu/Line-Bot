@@ -54,7 +54,7 @@ machine = TocMachine(
             "conditions": "is_going_to_select_cinema",
         },
         {
-            "trigger": "time",
+            "trigger": "show_time",
             "source": ["select_cinema"],
             "dest": "show_time",
             "conditions": "is_going_to_show_time",
@@ -138,7 +138,7 @@ def webhook_handler():
             elif "detail" in event.postback.data:
                 response = machine.search(event)
             else:
-                response = machine.time(event)
+                response = machine.show_time(event)
             # print("herewego")
             break
         if not isinstance(event, MessageEvent):

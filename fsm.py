@@ -792,7 +792,7 @@ class TocMachine(GraphMachine):
                     "action": {
                         "type": "postback",
                         "label": ref[0],
-                        "text": ref[1]+datas[-1],
+                        "text": ref[0],
                         "data": ref[1]+datas[-1]  # movieTime+movie id
                     }
                 }
