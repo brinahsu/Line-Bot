@@ -15,7 +15,7 @@ load_dotenv()
 
 machine = TocMachine(
     states=["user", "state1", "state2",
-            "state3", "search_table", "movie_intro", "select_cinema"],
+            "state3", "search_table", "movie_intro", "select_cinema", "show_time"],
     transitions=[
         {
             "trigger": "advance",
@@ -54,8 +54,14 @@ machine = TocMachine(
             "conditions": "is_going_to_select_cinema",
         },
         {
+            "trigger": "time",
+            "source": ["select_ciema"],
+            "dest": "show_time",
+            "conditions": "is_going_to_show_time",
+        },
+        {
             "trigger": "go_back",
-            "source": ["state1", "state2", "state3", "search_table", "movie_intro", "select_cinema"],
+            "source": ["state1", "state2", "state3", "search_table", "movie_intro", "select_cinema", "show_time"],
             "dest": "user"
         },
 
@@ -128,8 +134,10 @@ def webhook_handler():
         if isinstance(event, PostbackEvent):
             if "http" in event.postback.data:
                 response = machine.search(event)
-            else:
+            elif "#" in event.postback.data:
                 response = machine.select_cinema(event)
+            else:
+                response = machine.time(event)
             # print("herewego")
             break
         if not isinstance(event, MessageEvent):

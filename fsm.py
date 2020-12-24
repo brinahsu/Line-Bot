@@ -35,6 +35,10 @@ class TocMachine(GraphMachine):
         # text = event.message.text
         return True
 
+    def is_going_to_show_time(self, event):
+        # text = event.message.text
+        return True
+
     def on_enter_state1(self, event):
         print("I'm entering state1")
 
@@ -63,8 +67,7 @@ class TocMachine(GraphMachine):
         for i, data in enumerate(soup.select('ul.movieList figure a')):
             if i > 4:
                 break
-            introduction.append(
-                "https://www.vscinemas.com.tw/vsweb/film/"+data['href'])
+            introduction.append(data['href'])
         for i, data in enumerate(soup.select('ul.movieList figure a img')):
             if i > 4:
                 break
@@ -683,7 +686,8 @@ class TocMachine(GraphMachine):
         print("I'm entering search table")
 
         reply_token = event.reply_token
-        r = requests.get(event.postback.data)
+        r = requests.get(
+            "https://www.vscinemas.com.tw/vsweb/film/"+event.postback.data)
         r.encoding = 'utf-8'
         soup = BeautifulSoup(r.text, 'lxml')
         content = []
@@ -781,19 +785,14 @@ class TocMachine(GraphMachine):
                 continue
             ref = []
             ref = data.split('#')
-            print(data)
-            print(ref[0])
-            a = ref[0]
-            print(ref[1])
-            b = ref[1]
             action.append(
                 {
                     "type": "button",
                     "action": {
-                        "type": "message",
-                        "label": a,
-                        "text": b
-                        # "data": ref[1]
+                        "type": "postback",
+                        "label": ref[0],
+                        "text": ref[1]
+                        "data": ref[1]
                     }
                 }
             )
@@ -818,3 +817,9 @@ class TocMachine(GraphMachine):
         s1 = json.dumps(bubble_string)
         s2 = json.loads(s1)
         send_flex_message(reply_token, "hello", s2)
+
+    def on_enter_show_time(self, event):
+        print("I'm entering show time")
+
+        reply_token = event.reply_token
+        index = "#movieTime"+event.postback.data
