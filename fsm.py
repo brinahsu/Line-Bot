@@ -825,7 +825,7 @@ class TocMachine(GraphMachine):
         reply_token = event.reply_token
         index = "#movieTime"+event.postback.data[:-4]
         r = requests.get(
-            "https://www.vscinemas.com.tw/vsweb/film/"+event.postback.data[-4:])
+            "https://www.vscinemas.com.tw/vsweb/film/detail.aspx?id="+event.postback.data[-4:])
         r.encoding = 'utf-8'
         soup = BeautifulSoup(r.text, 'lxml')
         content = []
