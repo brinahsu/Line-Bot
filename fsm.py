@@ -716,6 +716,7 @@ class TocMachine(GraphMachine):
                 pack += (i+ref[k][0]+ref[k][10:]+"\n")
                 k = k+1
             print(pack)
+            print(len(pack))
             net.append(data['href'])
             action.append(
                 {
