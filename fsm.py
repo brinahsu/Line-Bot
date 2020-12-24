@@ -696,14 +696,19 @@ class TocMachine(GraphMachine):
         column = []
         place = []
         ref = []
-
+        pic = [
+            "https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8bW92aWV8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60",
+            "https://images.unsplash.com/photo-1535016120720-40c646be5580?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Nnx8bW92aWV8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60",
+            "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTV8fG1vdmllfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60",
+            "https://images.unsplash.com/photo-1533488765986-dfa2a9939acd?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjR8fG1vdmllfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60"
+        ]
         index = 0
         for i, data in enumerate(soup.select('ul.versionList ul')):
             place.append(data.text)
         for i, data in enumerate(soup.select('ul.versionList li ul li p a')):
             ref.append(data['href'])
         k = 0
-
+        con = []
         datas = soup.find_all("a", class_="versionFirst")
         for data in datas:
             # print(title.text)
@@ -726,27 +731,86 @@ class TocMachine(GraphMachine):
                         "label": data.text,
                         "text": data.text,
                         "data": pack+event.postback.data[-4:]  # 影城+movie id
-                    }
+                    },
+                    "color": "#ffffff",
+                    "style": "secondary"
                 }
             )
             index = index+1
-        bubble_string = {
-            "type": "bubble",
-            "body": {
-                "type": "box",
-                "layout": "vertical",
-                "contents": [
+        a = 0
+        for i, data in enumerate(action):
+            if i % 3 == 0:
+
+                if (i+3) > len(action):
+                    end = len(action)
+                else:
+                    end = i+3
+                con.append(
                     {
-                        "type": "text",
-                        "text": "請選擇放映版本"
+                        "type": "bubble",
+                        "header": {
+                            "type": "box",
+                            "layout": "vertical",
+                            "contents": [
+                                {
+                                    "type": "box",
+                                    "layout": "vertical",
+                                    "contents": [
+                                        {
+                                            "type": "image",
+                                            "url": pic[a],
+                                            "size": "full",
+                                            "aspectMode": "fit",
+                                            "aspectRatio": "150:100",
+                                            "gravity": "center",
+                                            "flex": 1
+                                        }
+                                    ]
+                                }
+                            ],
+                            "paddingAll": "0px"
+                        },
+                        "body": {
+                            "type": "box",
+                            "layout": "vertical",
+                            "contents": [
+                                {
+                                    "type": "box",
+                                    "layout": "vertical",
+                                    "contents": [
+                                        {
+                                            "type": "text",
+                                            "contents": [],
+                                            "size": "xl",
+                                            "text": "請選擇影廳",
+                                            "color": "#ffffff",
+                                            "weight": "bold",
+                                            "gravity": "top"
+                                        },
+                                        {
+                                            "type": "box",
+                                            "layout": "baseline",
+                                            "contents": [],
+                                            "margin": "xl"
+                                        },
+                                        {
+                                            "type": "box",
+                                            "layout": "vertical",
+                                            "contents": action[i:end],
+                                            "spacing": "sm"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "paddingAll": "20px",
+                            "backgroundColor": "#611529"
+                        }
                     }
-                ]
-            },
-            "footer": {
-                "type": "box",
-                "layout": "vertical",
-                "contents": action
-            }
+                )
+                a = a+1
+        bubble_string = {
+            "type": "carousel",
+            "contents": con
         }
         s1 = json.dumps(bubble_string)
         s2 = json.loads(s1)
@@ -913,5 +977,6 @@ class TocMachine(GraphMachine):
         for bata in batas:
             time.append(bata.text)
         for i, item in enumerate(data):
-            sti = sti+"🍿"+content[i]+"\n    "+time[i].replace("\n", " ")+"\n\n"
+            sti = sti+"🍿"+content[i]+"\n     " + \
+                time[i].replace("\n", " ")+"\n\n"
         send_text_message(reply_token, "放映時間如下\n\n"+sti)
