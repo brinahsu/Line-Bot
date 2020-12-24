@@ -725,7 +725,7 @@ class TocMachine(GraphMachine):
                         "type": "postback",
                         "label": data.text,
                         "text": data.text,
-                        "data": pack+event.postback.data
+                        "data": pack+event.postback.data[-4:]
                     }
                 }
             )
