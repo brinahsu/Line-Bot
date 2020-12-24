@@ -824,13 +824,17 @@ class TocMachine(GraphMachine):
 
         reply_token = event.reply_token
         index = "#movieTime"+event.postback.data[:-4]
-        r = requests.get(
-            "https://www.vscinemas.com.tw/vsweb/film/detail.aspx?id="+event.postback.data[-4:])
-        r.encoding = 'utf-8'
-        soup = BeautifulSoup(r.text, 'lxml')
+        url = "https://www.vscinemas.com.tw/vsweb/film/detail.aspx?id=" + \
+            event.postback.data[-4:]
+        request = req.Request(url, headers={
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"})
+        with req.urlopen(request) as response:
+            data = response.read().decode("utf-8")
+        soup = BeautifulSoup(data, 'lxml')
         content = []
         time = []
         st = ""
+        print(index)
         datas = soup.find("article", id=index)
         data = datas.find_all("h4")
         for i in data:
