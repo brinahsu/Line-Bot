@@ -803,7 +803,7 @@ class TocMachine(GraphMachine):
                                 }
                             ],
                             "paddingAll": "20px",
-                            "backgroundColor": "#296616"
+                            "backgroundColor": "#0f2c65"
                         }
                     }
                 )
