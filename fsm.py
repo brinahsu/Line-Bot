@@ -725,7 +725,7 @@ class TocMachine(GraphMachine):
                         "type": "postback",
                         "label": data.text,
                         "text": data.text,
-                        "data": pack+event.postback.data[-4:]
+                        "data": pack+event.postback.data[-4:]  # 影城+movie id
                     }
                 }
             )
@@ -793,7 +793,7 @@ class TocMachine(GraphMachine):
                         "type": "postback",
                         "label": ref[0],
                         "text": ref[1]+datas[-1],
-                        "data": ref[1]+datas[-1]
+                        "data": ref[1]+datas[-1]  # movieTime+movie id
                     }
                 }
             )
@@ -823,4 +823,21 @@ class TocMachine(GraphMachine):
         print("I'm entering show time")
 
         reply_token = event.reply_token
-        index = "#movieTime"+event.postback.data
+        index = "#movieTime"+event.postback.data[:-4]
+        r = requests.get(
+            "https://www.vscinemas.com.tw/vsweb/film/"+event.postback.data[-4:])
+        r.encoding = 'utf-8'
+        soup = BeautifulSoup(r.text, 'lxml')
+        content = []
+        time = []
+        st = ""
+        datas = soup.find("article", id=index)
+        data = datas.find_all("h4")
+        for i in data:
+            content.append(i.text)
+        batas = datas.findAll("ul", "bookList")
+        for bata in batas:
+            time.append(bata.text)
+        for i, item in enumerate(data):
+            st = st+content[i]+time[i]
+        send_text_message(reply_token, st)
