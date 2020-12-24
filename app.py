@@ -55,7 +55,7 @@ machine = TocMachine(
         },
         {
             "trigger": "time",
-            "source": ["select_ciema"],
+            "source": ["select_cinema"],
             "dest": "show_time",
             "conditions": "is_going_to_show_time",
         },
