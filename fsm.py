@@ -823,7 +823,7 @@ class TocMachine(GraphMachine):
         print("I'm entering show time")
 
         reply_token = event.reply_token
-        index = "#movieTime"+event.postback.data[:-4]
+        index = "movieTime"+event.postback.data[:-4]
         url = "https://www.vscinemas.com.tw/vsweb/film/detail.aspx?id=" + \
             event.postback.data[-4:]
         request = req.Request(url, headers={
