@@ -835,6 +835,7 @@ class TocMachine(GraphMachine):
         time = []
         st = ""
         print(index)
+        print(url)
         datas = soup.find("article", id=index)
         data = datas.find_all("h4")
         for i in data:
