@@ -791,7 +791,7 @@ class TocMachine(GraphMachine):
                     "action": {
                         "type": "postback",
                         "label": ref[0],
-                        "text": ref[1]
+                        "text": ref[1],
                         "data": ref[1]
                     }
                 }
