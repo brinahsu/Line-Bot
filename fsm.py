@@ -847,5 +847,5 @@ class TocMachine(GraphMachine):
         for bata in batas:
             time.append(bata.text)
         for i, item in enumerate(data):
-            sti = sti+"🍿"+content[i]+time[i].replace("\n", "\t")
+            sti = sti+"🍿"+content[i]+"\n"+time[i].replace("\n", " ")+"\n"
         send_text_message(reply_token, sti)
