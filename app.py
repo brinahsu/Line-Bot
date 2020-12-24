@@ -132,7 +132,7 @@ def webhook_handler():
     for event in events:
         print(type(event))
         if isinstance(event, PostbackEvent):
-            if "http" in event.postback.data:
+            if "detail" in event.postback.data:
                 response = machine.search(event)
             elif "#" in event.postback.data:
                 response = machine.select_cinema(event)
