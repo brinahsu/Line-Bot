@@ -834,15 +834,18 @@ class TocMachine(GraphMachine):
         content = []
         time = []
         st = ""
+        sti = ""
         print(index)
         print(url)
         datas = soup.find("article", id=index)
         data = datas.find_all("h4")
         for i in data:
-            content.append(i.text)
+            st = i.text[7:].replace(" 月 ", "/")
+            st = st.replace(" 日", "")
+            content.append(st)
         batas = datas.findAll("ul", "bookList")
         for bata in batas:
             time.append(bata.text)
         for i, item in enumerate(data):
-            st = st+content[i]+time[i]
-        send_text_message(reply_token, st)
+            sti = sti+"🍿"+content[i]+time[i].replace("\n", "\t")
+        send_text_message(reply_token, sti)
