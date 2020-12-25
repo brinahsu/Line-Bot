@@ -1016,7 +1016,7 @@ class TocMachine(GraphMachine):
         batas = datas.find_all("p", class_="icon-phone")
         for bata in batas:
             tele.append("電話"+bata.text[4:])
-        for i, data in enumerate(place):
+        for i, data in enumerate(place[:-4]):
             content.append(
                 {
                     "type": "bubble",
