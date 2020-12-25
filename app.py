@@ -14,14 +14,14 @@ load_dotenv()
 
 
 machine = TocMachine(
-    states=["user", "state2",
+    states=["user", "preview",
             "state3", "search_table", "movie_intro", "select_cinema", "show_time", "show_location"],
     transitions=[
         {
             "trigger": "want",
             "source": ["state3", "user"],
-            "dest": "state2",
-            "conditions": "is_going_to_state2",
+            "dest": "preview",
+            "conditions": "is_going_to_preview",
         },
         {
             "trigger": "advance",
@@ -31,13 +31,13 @@ machine = TocMachine(
         },
         {
             "trigger": "intro",
-            "source": ["user", "state2", "state3", "search_table", "select_cinema", "show_time"],
+            "source": ["user", "preview", "state3", "search_table", "select_cinema", "show_time"],
             "dest": "movie_intro",
             "conditions": "is_going_to_movie_intro",
         },
         {
             "trigger": "search",
-            "source": ["user", "state2", "state3", "movie_intro", "select_cinema", "show_time"],
+            "source": ["user", "preview", "state3", "movie_intro", "select_cinema", "show_time"],
             "dest": "search_table",
             "conditions": "is_going_to_search_table",
         },
@@ -55,13 +55,13 @@ machine = TocMachine(
         },
         {
             "trigger": "where",
-            "source": ["user", "state2", "state3", "search_table", "movie_intro", "select_cinema", "show_time"],
+            "source": ["user", "preview", "state3", "search_table", "movie_intro", "select_cinema", "show_time"],
             "dest": "show_location",
             "conditions": "is_going_to_show_location",
         },
         {
             "trigger": "go_back",
-            "source": ["state2", "state3", "search_table", "movie_intro", "select_cinema", "show_time", "show_location"],
+            "source": ["preview", "state3", "search_table", "movie_intro", "select_cinema", "show_time", "show_location"],
             "dest": "user"
         },
 

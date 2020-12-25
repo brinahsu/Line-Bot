@@ -11,7 +11,7 @@ class TocMachine(GraphMachine):
     def __init__(self, **machine_configs):
         self.machine = GraphMachine(model=self, **machine_configs)
 
-    def is_going_to_state2(self, event):
+    def is_going_to_preview(self, event):
         text = event.message.text
         return text.lower() == "我要看電影"
 
@@ -39,8 +39,8 @@ class TocMachine(GraphMachine):
         text = event.message.text
         return text.lower() == "影城據點"
 
-    def on_enter_state2(self, event):
-        print("I'm entering state2")
+    def on_enter_preview(self, event):
+        print("I'm entering preview")
 
         reply_token = event.reply_token
         url = "https://www.vscinemas.com.tw/vsweb/film/index.aspx"
@@ -1034,13 +1034,13 @@ class TocMachine(GraphMachine):
                                                     "weight": "bold",
                                                     "size": "xl",
                                                     "margin": "none",
-                                                    "wrap": true
+                                                    "wrap": True
                                                 },
                                                 {
                                                     "type": "text",
                                                     "text": "地址：新北市板橋區新站路28號10樓",
                                                     "color": "#ffffff",
-                                                    "wrap": true
+                                                    "wrap": True
                                                 },
                                                 {
                                                     "type": "text",
@@ -1071,13 +1071,13 @@ class TocMachine(GraphMachine):
                                                     "weight": "bold",
                                                     "size": "xl",
                                                     "margin": "none",
-                                                    "wrap": true
+                                                    "wrap": True
                                                 },
                                                 {
                                                     "type": "text",
                                                     "text": "地址：新北市板橋區新站路28號10樓",
                                                     "color": "#ffffff",
-                                                    "wrap": true
+                                                    "wrap": True
                                                 },
                                                 {
                                                     "type": "text",
@@ -1108,13 +1108,13 @@ class TocMachine(GraphMachine):
                                                     "weight": "bold",
                                                     "size": "xl",
                                                     "margin": "none",
-                                                    "wrap": true
+                                                    "wrap": True
                                                 },
                                                 {
                                                     "type": "text",
                                                     "text": "地址：新北市板橋區新站路28號10樓",
                                                     "color": "#ffffff",
-                                                    "wrap": true
+                                                    "wrap": True
                                                 },
                                                 {
                                                     "type": "text",
@@ -1145,13 +1145,13 @@ class TocMachine(GraphMachine):
                                                     "weight": "bold",
                                                     "size": "xl",
                                                     "margin": "none",
-                                                    "wrap": true
+                                                    "wrap": True
                                                 },
                                                 {
                                                     "type": "text",
                                                     "text": "地址：新北市板橋區新站路28號10樓",
                                                     "color": "#ffffff",
-                                                    "wrap": true
+                                                    "wrap": True
                                                 },
                                                 {
                                                     "type": "text",
