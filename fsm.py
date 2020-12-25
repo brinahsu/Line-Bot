@@ -697,10 +697,10 @@ class TocMachine(GraphMachine):
         place = []
         ref = []
         pic = [
-            "https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8bW92aWV8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60",
+            "https://images.unsplash.com/photo-1591188740449-3ed6b8f0d95e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mjh8fGNpbmVtYXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60",
             "https://images.unsplash.com/photo-1535016120720-40c646be5580?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Nnx8bW92aWV8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60",
             "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTV8fG1vdmllfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60",
-            "https://images.unsplash.com/photo-1533488765986-dfa2a9939acd?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjR8fG1vdmllfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60"
+            "https://lh3.googleusercontent.com/proxy/7kx44uhTT8M7gXWEWXBH38uHXeb1KMl80bzFNWR3zxSXSLhCzdsZCaQ6BoMN8DqqlnbR_Zy24d9G9n30OW3uJbe7wYwxkuY8jzkBC1NvU3nwMAgKaVZ2J_0nyzIiZLj0QlxixsksEA6F8oiq9VZLaw"
         ]
         index = 0
         for i, data in enumerate(soup.select('ul.versionList ul')):
@@ -803,7 +803,7 @@ class TocMachine(GraphMachine):
                                 }
                             ],
                             "paddingAll": "20px",
-                            "backgroundColor": "#0f2c65"
+                            "backgroundColor": "#9b2252"
                         }
                     }
                 )
