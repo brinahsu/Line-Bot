@@ -1015,7 +1015,7 @@ class TocMachine(GraphMachine):
                        i.figure.a.img['src'][2:])
             if len(i.section.p.text[2:]) > 14:
                 address.append(
-                    i.section.p.text[2:14]+"\n      "+i.section.p.text[14:])
+                    i.section.p.text[2:14]+"\n           "+i.section.p.text[14:])
             else:
                 address.append(i.section.p.text[2:])
         batas = datas.find_all("p", class_="icon-phone")
@@ -1166,14 +1166,14 @@ class TocMachine(GraphMachine):
                                                 },
                                                 {
                                                     "type": "text",
-                                                    "text": "📍  "+address[i+2],
+                                                    "text": "📍"+address[i+2],
                                                     "color": "#ffffff",
                                                     "contents": [],
                                                     "wrap": True
                                                 },
                                                 {
                                                     "type": "text",
-                                                    "text": "☎️   "+tele[i+2],
+                                                    "text": "☎️ "+tele[i+2],
                                                     "color": "#ffffff"
                                                 }
                                             ],
