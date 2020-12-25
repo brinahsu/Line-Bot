@@ -685,7 +685,8 @@ class TocMachine(GraphMachine):
         print("I'm entering state3")
 
         reply_token = event.reply_token
-        send_text_message(reply_token, "您好！")
+        send_text_message(
+            reply_token, "您好！歡迎使用威秀小幫手 \n 🎥 輸入「我要看電影」可以得到最新的電影資訊\n🎥 輸入「影城據點」可以得到華納威秀各個影城資訊")
         self.go_back()
 
     def on_exit_state3(self):
@@ -1012,7 +1013,11 @@ class TocMachine(GraphMachine):
             place.append(i.section.h2.text)
             img.append("https://www.vscinemas.com.tw/vsweb" +
                        i.figure.a.img['src'][2:])
-            address.append(i.section.p.text[2:])
+            if len(i.section.p.text[2:]) > 14:
+                address.append(
+                    i.section.p.text[2:14]+"\n   "+i.section.p.text[14:])
+            else:
+                address.append(i.section.p.text[2:])
         batas = datas.find_all("p", class_="icon-phone")
         for bata in batas:
             tele.append("電話"+bata.text[4:])
@@ -1075,19 +1080,19 @@ class TocMachine(GraphMachine):
                                         "contents": [
                                             {
                                                 "type": "text",
-                                                "text": "📍  "+address[i],
+                                                "text": "📍"+address[i],
                                                 "color": "#ffffff",
                                                 "contents": [],
                                                 "wrap": True
                                             },
                                             {
                                                 "type": "text",
-                                                "text": "☎️   "+tele[i],
+                                                "text": "☎️ "+tele[i],
                                                 "color": "#ffffff"
                                             }
                                         ],
                                         "paddingAll": "lg",
-                                        "backgroundColor": "#ffffff1A",
+                                        "backgroundColor": "#3c8ed7",
                                         "cornerRadius": "none",
                                         "margin": "none",
                                         "spacing": "sm"
