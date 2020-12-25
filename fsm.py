@@ -55,20 +55,20 @@ class TocMachine(GraphMachine):
         english = []
         introduction = []
         for i, data in enumerate(soup.select('ul.movieList figure a')):
-            if i > 4:
+            if i > 9:
                 break
             introduction.append(data['href'])
         for i, data in enumerate(soup.select('ul.movieList figure a img')):
-            if i > 4:
+            if i > 9:
                 break
             content.append(
                 "https://www.vscinemas.com.tw/vsweb" + data['src'][2:])
         for i, data in enumerate(soup.select('section.infoArea a')):
-            if i > 4:
+            if i > 9:
                 break
             name.append(data.text)
         for i, data in enumerate(soup.select('section.infoArea h3')):
-            if i > 4:
+            if i > 9:
                 break
             english.append(data.text)
         for i, data in enumerate(name):
@@ -100,7 +100,6 @@ class TocMachine(GraphMachine):
                                                 "text": name[i],
                                                 "size": "xl",
                                                 "color": "#000000",
-                                                "wrap": True,
                                                 "weight": "bold"
                                             }
                                         ]
