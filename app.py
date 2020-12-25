@@ -14,15 +14,9 @@ load_dotenv()
 
 
 machine = TocMachine(
-    states=["user", "state1", "state2",
+    states=["user", "state2",
             "state3", "search_table", "movie_intro", "select_cinema", "show_time", "show_location"],
     transitions=[
-        {
-            "trigger": "advance",
-            "source": "user",
-            "dest": "state1",
-            "conditions": "is_going_to_state1",
-        },
         {
             "trigger": "want",
             "source": ["state3", "user"],
@@ -37,13 +31,13 @@ machine = TocMachine(
         },
         {
             "trigger": "intro",
-            "source": ["user", "state1", "state2", "state3", "search_table", "select_cinema", "show_time"],
+            "source": ["user", "state2", "state3", "search_table", "select_cinema", "show_time"],
             "dest": "movie_intro",
             "conditions": "is_going_to_movie_intro",
         },
         {
             "trigger": "search",
-            "source": ["user", "state1", "state2", "state3", "movie_intro", "select_cinema", "show_time"],
+            "source": ["user", "state2", "state3", "movie_intro", "select_cinema", "show_time"],
             "dest": "search_table",
             "conditions": "is_going_to_search_table",
         },
@@ -67,7 +61,7 @@ machine = TocMachine(
         },
         {
             "trigger": "go_back",
-            "source": ["state1", "state2", "state3", "search_table", "movie_intro", "select_cinema", "show_time", "show_location"],
+            "source": ["state2", "state3", "search_table", "movie_intro", "select_cinema", "show_time", "show_location"],
             "dest": "user"
         },
 

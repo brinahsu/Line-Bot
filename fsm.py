@@ -1030,21 +1030,21 @@ class TocMachine(GraphMachine):
                                                 {
                                                     "type": "text",
                                                     "color": "#ffffff",
-                                                    "text": place[i],
+                                                    "text": "板橋大遠百威秀影城",
                                                     "weight": "bold",
                                                     "size": "xl",
                                                     "margin": "none",
-                                                    "wrap":True
+                                                    "wrap": true
                                                 },
                                                 {
                                                     "type": "text",
-                                                    "text": address[i],
+                                                    "text": "地址：新北市板橋區新站路28號10樓",
                                                     "color": "#ffffff",
-                                                    "wrap":True
+                                                    "wrap": true
                                                 },
                                                 {
                                                     "type": "text",
-                                                    "text": tele[i],
+                                                    "text": "電話：(02) 7738-6608",
                                                     "color": "#ffffff"
                                                 },
                                                 {
@@ -1067,21 +1067,21 @@ class TocMachine(GraphMachine):
                                                 {
                                                     "type": "text",
                                                     "color": "#ffffff",
-                                                    "text": place[i+1],
+                                                    "text": "板橋大遠百威秀影城",
                                                     "weight": "bold",
                                                     "size": "xl",
-                                                    "wrap":True,
-                                                    "margin": "none"
+                                                    "margin": "none",
+                                                    "wrap": true
                                                 },
                                                 {
                                                     "type": "text",
-                                                    "text": address[i+1],
-                                                    "wrap":True,
-                                                    "color": "#ffffff"
+                                                    "text": "地址：新北市板橋區新站路28號10樓",
+                                                    "color": "#ffffff",
+                                                    "wrap": true
                                                 },
                                                 {
                                                     "type": "text",
-                                                    "text": tele[i+1],
+                                                    "text": "電話：(02) 7738-6608",
                                                     "color": "#ffffff"
                                                 },
                                                 {
@@ -1104,21 +1104,21 @@ class TocMachine(GraphMachine):
                                                 {
                                                     "type": "text",
                                                     "color": "#ffffff",
-                                                    "text": place[i+2],
+                                                    "text": "板橋大遠百威秀影城",
                                                     "weight": "bold",
                                                     "size": "xl",
-                                                    "wrap":True,
-                                                    "margin": "none"
+                                                    "margin": "none",
+                                                    "wrap": true
                                                 },
                                                 {
                                                     "type": "text",
-                                                    "text": address[i+2],
-                                                    "wrap":True,
-                                                    "color": "#ffffff"
+                                                    "text": "地址：新北市板橋區新站路28號10樓",
+                                                    "color": "#ffffff",
+                                                    "wrap": true
                                                 },
                                                 {
                                                     "type": "text",
-                                                    "text": tele[i+2],
+                                                    "text": "電話：(02) 7738-6608",
                                                     "color": "#ffffff"
                                                 },
                                                 {
@@ -1141,21 +1141,21 @@ class TocMachine(GraphMachine):
                                                 {
                                                     "type": "text",
                                                     "color": "#ffffff",
-                                                    "text": place[i+3],
+                                                    "text": "板橋大遠百威秀影城",
                                                     "weight": "bold",
                                                     "size": "xl",
-                                                    "wrap":True,
-                                                    "margin": "none"
+                                                    "margin": "none",
+                                                    "wrap": true
                                                 },
                                                 {
                                                     "type": "text",
-                                                    "text": address[i+3],
-                                                    "wrap":True,
-                                                    "color": "#ffffff"
+                                                    "text": "地址：新北市板橋區新站路28號10樓",
+                                                    "color": "#ffffff",
+                                                    "wrap": true
                                                 },
                                                 {
                                                     "type": "text",
-                                                    "text": tele[i+3],
+                                                    "text": "電話：(02) 7738-6608",
                                                     "color": "#ffffff"
                                                 },
                                                 {
