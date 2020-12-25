@@ -971,6 +971,7 @@ class TocMachine(GraphMachine):
             sti = sti+"🍿"+content[i]+"\n     " + \
                 time[i].replace("\n", " ")+"\n\n"
         send_text_message(reply_token, "放映時間如下\n\n"+sti)
+        self.go_back()
 
     def on_enter_show_location(self, event):
         print("I'm entering show location")
