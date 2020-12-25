@@ -1053,11 +1053,13 @@ class TocMachine(GraphMachine):
                                                     "text": place[i],
                                                     "weight": "bold",
                                                     "size": "xl",
+                                                    "wrap":True,
                                                     "margin": "none"
                                                 },
                                                 {
                                                     "type": "text",
                                                     "text": address[i],
+                                                    "wrap":True,
                                                     "color": "#ffffff"
                                                 },
                                                 {
@@ -1088,11 +1090,13 @@ class TocMachine(GraphMachine):
                                                     "text": place[i+1],
                                                     "weight": "bold",
                                                     "size": "xl",
+                                                    "wrap":True,
                                                     "margin": "none"
                                                 },
                                                 {
                                                     "type": "text",
                                                     "text": address[i+1],
+                                                    "wrap":True,
                                                     "color": "#ffffff"
                                                 },
                                                 {
@@ -1123,11 +1127,13 @@ class TocMachine(GraphMachine):
                                                     "text": place[i+2],
                                                     "weight": "bold",
                                                     "size": "xl",
+                                                    "wrap":True,
                                                     "margin": "none"
                                                 },
                                                 {
                                                     "type": "text",
                                                     "text": address[i+2],
+                                                    "wrap":True,
                                                     "color": "#ffffff"
                                                 },
                                                 {
@@ -1158,11 +1164,13 @@ class TocMachine(GraphMachine):
                                                     "text": place[i+3],
                                                     "weight": "bold",
                                                     "size": "xl",
+                                                    "wrap":True,
                                                     "margin": "none"
                                                 },
                                                 {
                                                     "type": "text",
                                                     "text": address[i+3],
+                                                    "wrap":True,
                                                     "color": "#ffffff"
                                                 },
                                                 {
