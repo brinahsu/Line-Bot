@@ -139,7 +139,7 @@ def webhook_handler():
         print(type(event))
         if isinstance(event, PostbackEvent):
 
-            if "intro" event.postback.data:
+            if "intro" in event.postback.data:
                 ver = True
                 response = machine.intro(event)
             elif "#" in event.postback.data:
