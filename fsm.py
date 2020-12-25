@@ -992,7 +992,7 @@ class TocMachine(GraphMachine):
             place.append(i.section.h2.text)
             if len(i.section.p.text[2:]) > 14:
                 address.append(
-                    i.section.p.text[2:14]+"\n           "+i.section.p.text[14:])
+                    i.section.p.text[2:])
             else:
                 address.append(i.section.p.text[2:])
         batas = datas.find_all("p", class_="icon-phone")
@@ -1178,7 +1178,7 @@ class TocMachine(GraphMachine):
                                     "margin": "none",
                                     "paddingAll": "20px",
                                     "paddingTop": "320px",
-                                    "backgroundColor": "#00000080",
+                                    "backgroundColor": "#00000099",
                                     "offsetEnd": "0px",
                                     "offsetStart": "0px",
                                     "offsetBottom": "none",
