@@ -1063,27 +1063,22 @@ class TocMachine(GraphMachine):
                                                 "type": "text",
                                                 "contents": [],
                                                 "size": "xl",
-                                                "wrap": True,
+                                                "wrap": true,
                                                 "color": "#ffffff",
                                                 "weight": "bold",
                                                 "text": place[i]
                                             },
                                             {
-                                                "type": "spacer"
-                                            }
-                                        ],
-                                        "spacing": "md"
-                                    },
-                                    {
-                                        "type": "box",
-                                        "layout": "vertical",
-                                        "contents": [
+                                                "type": "box",
+                                                "layout": "baseline",
+                                                "contents": []
+                                            },
                                             {
                                                 "type": "text",
-                                                "text": "📍"+address[i],
+                                                "text": "📍 "+address[i],
                                                 "color": "#ffffff",
                                                 "contents": [],
-                                                "wrap": True
+                                                "wrap": true
                                             },
                                             {
                                                 "type": "text",
@@ -1091,11 +1086,7 @@ class TocMachine(GraphMachine):
                                                 "color": "#ffffff"
                                             }
                                         ],
-                                        "paddingAll": "lg",
-                                        "backgroundColor": "#3c8ed7",
-                                        "cornerRadius": "none",
-                                        "margin": "none",
-                                        "spacing": "sm"
+                                        "spacing": "md"
                                     }
                                 ]
                             }
