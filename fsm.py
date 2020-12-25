@@ -1033,14 +1033,14 @@ class TocMachine(GraphMachine):
                                                     "text": place[i],
                                                     "weight": "bold",
                                                     "size": "xl",
-                                                    "wrap":True,
-                                                    "margin": "none"
+                                                    "margin": "none",
+                                                    "wrap":True
                                                 },
                                                 {
                                                     "type": "text",
                                                     "text": address[i],
-                                                    "wrap":True,
-                                                    "color": "#ffffff"
+                                                    "color": "#ffffff",
+                                                    "wrap":True
                                                 },
                                                 {
                                                     "type": "text",
