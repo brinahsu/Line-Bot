@@ -71,8 +71,131 @@ class TocMachine(GraphMachine):
             if i > 4:
                 break
             english.append(data.text)
-
+        for i, data in enumerate(name):
+            column.append(
+                {
+                    "type": "bubble",
+                    "body": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "contents": [
+                            {
+                                "type": "image",
+                                "size": "full",
+                                "aspectMode": "cover",
+                                "aspectRatio": "2:3",
+                                "gravity": "top",
+                                "url": content[i]
+                            },
+                            {
+                                "type": "box",
+                                "layout": "vertical",
+                                "contents": [
+                                    {
+                                        "type": "box",
+                                        "layout": "vertical",
+                                        "contents": [
+                                            {
+                                                "type": "text",
+                                                "text": name[i],
+                                                "size": "xl",
+                                                "color": "#000000",
+                                                "wrap": True,
+                                                "weight": "bold"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "box",
+                                        "layout": "baseline",
+                                        "contents": [
+                                            {
+                                                "type": "text",
+                                                "color": "#000000",
+                                                "size": "sm",
+                                                "flex": 0,
+                                                "text": english[i]
+                                            }
+                                        ],
+                                        "spacing": "lg"
+                                    },
+                                    {
+                                        "type": "box",
+                                        "layout": "horizontal",
+                                        "contents": [
+                                            {
+                                                "type": "button",
+                                                "action": {
+                                                    "type": "postback",
+                                                    "label": "簡介",
+                                                    "text": name[i]+"簡介",
+                                                    "data":"intro"+introduction[i]
+                                                },
+                                                "margin": "xs",
+                                                "height": "sm",
+                                                "style": "primary",
+                                                "color": "#ff1493"
+                                            },
+                                            {
+                                                "type": "button",
+                                                "action": {
+                                                    "type": "postback",
+                                                    "label": "時刻表",
+                                                    "text": name[i]+"時刻表",
+                                                    "data": introduction[i]
+                                                },
+                                                "height": "sm",
+                                                "style": "primary",
+                                                "color": "#1e90ff"
+                                            }
+                                        ],
+                                        "borderWidth": "none",
+                                        "cornerRadius": "4px",
+                                        "spacing": "lg",
+                                        "borderColor": "#000000",
+                                        "margin": "md"
+                                    }
+                                ],
+                                "position": "absolute",
+                                "offsetBottom": "0px",
+                                "offsetStart": "0px",
+                                "offsetEnd": "0px",
+                                "backgroundColor": "#ffffffcc",
+                                "paddingAll": "20px",
+                                "paddingTop": "18px",
+                                "height": "130px"
+                            },
+                            {
+                                "type": "box",
+                                "layout": "vertical",
+                                "contents": [
+                                    {
+                                        "type": "text",
+                                        "text": "熱映中",
+                                        "color": "#ffffff",
+                                        "align": "center",
+                                        "size": "xs",
+                                        "offsetTop": "3px"
+                                    }
+                                ],
+                                "position": "absolute",
+                                "cornerRadius": "20px",
+                                "offsetTop": "18px",
+                                "backgroundColor": "#ff334b",
+                                "offsetStart": "18px",
+                                "height": "25px",
+                                "width": "53px"
+                            }
+                        ],
+                        "paddingAll": "0px"
+                    }
+                }
+            )
         bubble_string = {
+            "type": "carousel",
+            "contents": column
+        }
+        """bubble_string = {
             "type": "carousel",
             "contents": [
                 {
@@ -102,6 +225,7 @@ class TocMachine(GraphMachine):
                                                 "text": name[0],
                                                 "size": "xl",
                                                 "color": "#000000",
+                                                "wrap": True,
                                                 "weight": "bold"
                                             }
                                         ]
@@ -657,7 +781,7 @@ class TocMachine(GraphMachine):
                 }
 
             ]
-        }
+        }"""
         s1 = json.dumps(bubble_string)
         s2 = json.loads(s1)
 
@@ -1041,6 +1165,7 @@ class TocMachine(GraphMachine):
                                                     "type": "text",
                                                     "color": "#ffffffcc",
                                                     "size": "sm",
+                                                    "wrap": True,
                                                     "text": address[i]
                                                 },
                                                 {
@@ -1078,6 +1203,7 @@ class TocMachine(GraphMachine):
                                                     "type": "text",
                                                     "color": "#ffffffcc",
                                                     "size": "sm",
+                                                    "wrap": True,
                                                     "text": address[i+1]
                                                 },
                                                 {
@@ -1115,6 +1241,7 @@ class TocMachine(GraphMachine):
                                                     "type": "text",
                                                     "color": "#ffffffcc",
                                                     "size": "sm",
+                                                    "wrap": True,
                                                     "text": address[i+2]
                                                 },
                                                 {
@@ -1152,6 +1279,7 @@ class TocMachine(GraphMachine):
                                                     "type": "text",
                                                     "color": "#ffffffcc",
                                                     "size": "sm",
+                                                    "wrap": True,
                                                     "text": address[i+3]
                                                 },
                                                 {
