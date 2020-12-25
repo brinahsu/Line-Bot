@@ -999,7 +999,6 @@ class TocMachine(GraphMachine):
         place = []
         address = []
         tele = []
-        img = []
         content = []
         url = "https://www.vscinemas.com.tw/vsweb/theater/index.aspx"
         request = req.Request(url, headers={
@@ -1011,8 +1010,6 @@ class TocMachine(GraphMachine):
         data = datas.find_all("li")
         for i in data:
             place.append(i.section.h2.text)
-            img.append("https://www.vscinemas.com.tw/vsweb" +
-                       i.figure.a.img['src'][2:])
             if len(i.section.p.text[2:]) > 14:
                 address.append(
                     i.section.p.text[2:14]+"\n           "+i.section.p.text[14:])
@@ -1021,8 +1018,11 @@ class TocMachine(GraphMachine):
         batas = datas.find_all("p", class_="icon-phone")
         for bata in batas:
             tele.append("電話"+bata.text[4:])
-        for i, data in enumerate(place[:-4]):
-            if i % 3 == 0:
+        place.append("")
+        address.append("")
+        tele.append("")
+        for i, data in enumerate(place):
+            if i % 4 == 0:
                 content.append(
                     {
                         "type": "bubble",
@@ -1031,60 +1031,13 @@ class TocMachine(GraphMachine):
                             "layout": "vertical",
                             "contents": [
                                 {
-                                    "type": "box",
-                                    "layout": "vertical",
-                                    "contents": [
-                                        {
-                                            "type": "box",
-                                            "layout": "vertical",
-                                            "contents": [
-                                                {
-                                                    "type": "text",
-                                                    "contents": [],
-                                                    "size": "xl",
-                                                    "wrap": True,
-                                                    "color": "#ffffff",
-                                                    "weight": "bold",
-                                                    "text": place[i]
-                                                },
-                                                {
-                                                    "type": "box",
-                                                    "layout": "baseline",
-                                                    "contents": []
-                                                },
-                                                {
-                                                    "type": "text",
-                                                    "text": "📍  "+address[i],
-                                                    "color": "#ffffff",
-                                                    "contents": [],
-                                                    "wrap": True
-                                                },
-                                                {
-                                                    "type": "text",
-                                                    "text": "☎️   "+tele[i],
-                                                    "color": "#ffffff"
-                                                }
-                                            ],
-                                            "spacing": "md"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "box",
-                                    "layout": "baseline",
-                                    "contents": [],
-                                    "spacing": "xl",
-                                    "margin": "lg"
-                                },
-                                {
-                                    "type": "separator"
-                                },
-                                {
-                                    "type": "box",
-                                    "layout": "baseline",
-                                    "contents": [],
-                                    "spacing": "xl",
-                                    "margin": "lg"
+                                    "type": "image",
+                                    "url": "https://images.unsplash.com/photo-1507723714871-f8d4b0d065b8?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzZ8fG1vdmllfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=60",
+                                    "size": "full",
+                                    "aspectMode": "cover",
+                                    "aspectRatio": "2:3",
+                                    "gravity": "top",
+                                    "position": "absolute"
                                 },
                                 {
                                     "type": "box",
@@ -1096,96 +1049,159 @@ class TocMachine(GraphMachine):
                                             "contents": [
                                                 {
                                                     "type": "text",
-                                                    "contents": [],
-                                                    "size": "xl",
-                                                    "wrap": True,
                                                     "color": "#ffffff",
+                                                    "text": place[i],
                                                     "weight": "bold",
-                                                    "text": place[i+1]
+                                                    "size": "xl",
+                                                    "margin": "none"
+                                                },
+                                                {
+                                                    "type": "text",
+                                                    "text": address[i],
+                                                    "color": "#ffffff"
+                                                },
+                                                {
+                                                    "type": "text",
+                                                    "text": tele[i],
+                                                    "color": "#ffffff"
                                                 },
                                                 {
                                                     "type": "box",
                                                     "layout": "baseline",
-                                                    "contents": []
+                                                    "contents": [],
+                                                    "spacing": "none",
+                                                    "margin": "lg"
                                                 },
                                                 {
-                                                    "type": "text",
-                                                    "text": "📍  "+address[i+1],
-                                                    "color": "#ffffff",
-                                                    "contents": [],
-                                                    "wrap": True
-                                                },
-                                                {
-                                                    "type": "text",
-                                                    "text": "☎️   "+tele[i+1],
-                                                    "color": "#ffffff"
-                                                }
-                                            ],
-                                            "spacing": "md"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "box",
-                                    "layout": "baseline",
-                                    "contents": [],
-                                    "spacing": "xl",
-                                    "margin": "lg"
-                                },
-                                {
-                                    "type": "separator"
-                                },
-                                {
-                                    "type": "box",
-                                    "layout": "baseline",
-                                    "contents": [],
-                                    "spacing": "xl",
-                                    "margin": "lg"
-                                },
-                                {
-                                    "type": "box",
-                                    "layout": "vertical",
-                                    "contents": [
-                                        {
-                                            "type": "box",
-                                            "layout": "vertical",
-                                            "contents": [
-                                                {
-                                                    "type": "text",
-                                                    "contents": [],
-                                                    "size": "xl",
-                                                    "wrap": True,
-                                                    "color": "#ffffff",
-                                                    "weight": "bold",
-                                                    "text": place[i+2]
+                                                    "type": "separator"
                                                 },
                                                 {
                                                     "type": "box",
                                                     "layout": "baseline",
-                                                    "contents": []
-                                                },
-                                                {
-                                                    "type": "text",
-                                                    "text": "📍"+address[i+2],
-                                                    "color": "#ffffff",
                                                     "contents": [],
-                                                    "wrap": True
+                                                    "spacing": "none",
+                                                    "margin": "lg"
                                                 },
                                                 {
                                                     "type": "text",
-                                                    "text": "☎️ "+tele[i+2],
+                                                    "color": "#ffffff",
+                                                    "text": place[i+1],
+                                                    "weight": "bold",
+                                                    "size": "xl",
+                                                    "margin": "none"
+                                                },
+                                                {
+                                                    "type": "text",
+                                                    "text": address[i+1],
                                                     "color": "#ffffff"
+                                                },
+                                                {
+                                                    "type": "text",
+                                                    "text": tele[i+1],
+                                                    "color": "#ffffff"
+                                                },
+                                                {
+                                                    "type": "box",
+                                                    "layout": "baseline",
+                                                    "contents": [],
+                                                    "spacing": "none",
+                                                    "margin": "lg"
+                                                },
+                                                {
+                                                    "type": "separator"
+                                                },
+                                                {
+                                                    "type": "box",
+                                                    "layout": "baseline",
+                                                    "contents": [],
+                                                    "spacing": "none",
+                                                    "margin": "lg"
+                                                },
+                                                {
+                                                    "type": "text",
+                                                    "color": "#ffffff",
+                                                    "text": place[i+2],
+                                                    "weight": "bold",
+                                                    "size": "xl",
+                                                    "margin": "none"
+                                                },
+                                                {
+                                                    "type": "text",
+                                                    "text": address[i+2],
+                                                    "color": "#ffffff"
+                                                },
+                                                {
+                                                    "type": "text",
+                                                    "text": tele[i+2],
+                                                    "color": "#ffffff"
+                                                },
+                                                {
+                                                    "type": "box",
+                                                    "layout": "baseline",
+                                                    "contents": [],
+                                                    "spacing": "none",
+                                                    "margin": "lg"
+                                                },
+                                                {
+                                                    "type": "separator"
+                                                },
+                                                {
+                                                    "type": "box",
+                                                    "layout": "baseline",
+                                                    "contents": [],
+                                                    "spacing": "none",
+                                                    "margin": "lg"
+                                                },
+                                                {
+                                                    "type": "text",
+                                                    "color": "#ffffff",
+                                                    "text": place[i+3],
+                                                    "weight": "bold",
+                                                    "size": "xl",
+                                                    "margin": "none"
+                                                },
+                                                {
+                                                    "type": "text",
+                                                    "text": address[i+3],
+                                                    "color": "#ffffff"
+                                                },
+                                                {
+                                                    "type": "text",
+                                                    "text": tele[i+3],
+                                                    "color": "#ffffff"
+                                                },
+                                                {
+                                                    "type": "box",
+                                                    "layout": "baseline",
+                                                    "contents": [],
+                                                    "spacing": "none",
+                                                    "margin": "lg"
                                                 }
                                             ],
-                                            "spacing": "md"
+                                            "position": "absolute",
+                                            "offsetStart": "xxl",
+                                            "offsetTop": "xxl",
+                                            "spacing": "none",
+                                            "paddingAll": "xs"
                                         }
-                                    ]
+                                    ],
+                                    "position": "absolute",
+                                    "offsetBottom": "none",
+                                    "offsetStart": "0px",
+                                    "offsetEnd": "0px",
+                                    "backgroundColor": "#00000080",
+                                    "paddingAll": "20px",
+                                    "paddingTop": "320px",
+                                    "offsetTop": "none",
+                                    "spacing": "none",
+                                    "margin": "none",
+                                    "cornerRadius": "none",
+                                    "alignItems": "flex-start"
                                 }
                             ],
-                            "paddingAll": "20px",
-                            "backgroundColor": "#3c8ed7"
+                            "paddingAll": "0px"
                         }
-                    }
+                    },
                 )
         bubble_string = {
             "type": "carousel",
