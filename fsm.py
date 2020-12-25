@@ -17,19 +17,19 @@ class TocMachine(GraphMachine):
 
     def is_going_to_state2(self, event):
         text = event.message.text
-        return text.lower() == "go to state2"
+        return text.lower() == "我要看電影"
 
     def is_going_to_state3(self, event):
         text = event.message.text
-        return text.lower() == "state3"
+        return True
 
     def is_going_to_search_table(self, event):
         # text = event.message.text
         return True
 
     def is_going_to_movie_intro(self, event):
-        text = event.message.text
-        return "簡介" in text.lower()
+        #text = event.message.text
+        return True
 
     def is_going_to_select_cinema(self, event):
         # text = event.message.text
@@ -38,6 +38,10 @@ class TocMachine(GraphMachine):
     def is_going_to_show_time(self, event):
         # text = event.message.text
         return True
+
+    def is_going_to_show_location(self, event):
+        text = event.message.text
+        return text.lower() == "影城據點"
 
     def on_enter_state1(self, event):
         print("I'm entering state1")
@@ -137,9 +141,10 @@ class TocMachine(GraphMachine):
                                             {
                                                 "type": "button",
                                                 "action": {
-                                                    "type": "message",
+                                                    "type": "postback",
                                                     "label": "簡介",
-                                                    "text": name[0]+"簡介"
+                                                    "text": name[0]+"簡介",
+                                                    "data":"intro"+introduction[0]
                                                 },
                                                 "margin": "xs",
                                                 "height": "sm",
@@ -252,9 +257,10 @@ class TocMachine(GraphMachine):
                                             {
                                                 "type": "button",
                                                 "action": {
-                                                    "type": "message",
+                                                    "type": "postback",
                                                     "label": "簡介",
-                                                    "text": name[1]+"簡介"
+                                                    "text": name[1]+"簡介",
+                                                    "data":"intro"+introduction[1]
                                                 },
                                                 "margin": "xs",
                                                 "height": "sm",
@@ -367,9 +373,10 @@ class TocMachine(GraphMachine):
                                             {
                                                 "type": "button",
                                                 "action": {
-                                                    "type": "message",
+                                                    "type": "postback",
                                                     "label": "簡介",
-                                                    "text": name[2]+"簡介"
+                                                    "text": name[2]+"簡介",
+                                                    "data":"intro"+introduction[2]
                                                 },
                                                 "margin": "xs",
                                                 "height": "sm",
@@ -482,9 +489,10 @@ class TocMachine(GraphMachine):
                                             {
                                                 "type": "button",
                                                 "action": {
-                                                    "type": "message",
+                                                    "type": "postback",
                                                     "label": "簡介",
-                                                    "text": name[3]+"簡介"
+                                                    "text": name[3]+"簡介",
+                                                    "data":"intro"+introduction[3]
                                                 },
                                                 "margin": "xs",
                                                 "height": "sm",
@@ -597,9 +605,10 @@ class TocMachine(GraphMachine):
                                             {
                                                 "type": "button",
                                                 "action": {
-                                                    "type": "message",
+                                                    "type": "postback",
                                                     "label": "簡介",
-                                                    "text": name[4]+"簡介"
+                                                    "text": name[4]+"簡介",
+                                                    "data":"intro"+introduction[4]
                                                 },
                                                 "margin": "xs",
                                                 "height": "sm",
@@ -676,7 +685,7 @@ class TocMachine(GraphMachine):
         print("I'm entering state3")
 
         reply_token = event.reply_token
-        send_text_message(reply_token, "goto state3")
+        send_text_message(reply_token, "您好！")
         self.go_back()
 
     def on_exit_state3(self):
@@ -824,7 +833,8 @@ class TocMachine(GraphMachine):
         print("I'm entering movie intro")
 
         reply_token = event.reply_token
-        url = "https://www.vscinemas.com.tw/vsweb/film/detail.aspx?id=4918"
+        url = "https://www.vscinemas.com.tw/vsweb/film/" + \
+            event.postback.data[5:]
         request = req.Request(url, headers={
             "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"})
         with req.urlopen(request) as response:
@@ -980,3 +990,121 @@ class TocMachine(GraphMachine):
             sti = sti+"🍿"+content[i]+"\n     " + \
                 time[i].replace("\n", " ")+"\n\n"
         send_text_message(reply_token, "放映時間如下\n\n"+sti)
+
+    def on_enter_show_location(self, event):
+        print("I'm entering show location")
+
+        reply_token = event.reply_token
+        place = []
+        address = []
+        tele = []
+        img = []
+        content = []
+        url = "https://www.vscinemas.com.tw/vsweb/theater/index.aspx"
+        request = req.Request(url, headers={
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"})
+        with req.urlopen(request) as response:
+            data = response.read().decode("utf-8")
+        soup = BeautifulSoup(data, 'lxml')
+        datas = soup.find("article", class_="article")  # .find_all("h4")
+        data = datas.find_all("li")
+        for i in data:
+            place.append(i.section.h2.text)
+            img.append("https://www.vscinemas.com.tw/vsweb" +
+                       i.figure.a.img['src'][2:])
+            address.append(i.section.p.text[2:])
+        batas = datas.find_all("p", class_="icon-phone")
+        for bata in batas:
+            tele.append("電話"+bata.text[4:])
+        for i, data in enumerate(place):
+            content.append(
+                {
+                    "type": "bubble",
+                    "header": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "contents": [
+                            {
+                                "type": "box",
+                                "layout": "vertical",
+                                "contents": [
+                                    {
+                                        "type": "image",
+                                        "url": img[i],
+                                        "size": "full",
+                                        "aspectMode": "fit",
+                                        "aspectRatio": "150:90",
+                                        "gravity": "center",
+                                        "flex": 1
+                                    }
+                                ]
+                            }
+                        ],
+                        "paddingAll": "0px"
+                    },
+                    "body": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "contents": [
+                            {
+                                "type": "box",
+                                "layout": "vertical",
+                                "contents": [
+                                    {
+                                        "type": "box",
+                                        "layout": "vertical",
+                                        "contents": [
+                                            {
+                                                "type": "text",
+                                                "contents": [],
+                                                "size": "xl",
+                                                "wrap": True,
+                                                "color": "#ffffff",
+                                                "weight": "bold",
+                                                "text": place[i]
+                                            },
+                                            {
+                                                "type": "spacer"
+                                            }
+                                        ],
+                                        "spacing": "md"
+                                    },
+                                    {
+                                        "type": "box",
+                                        "layout": "vertical",
+                                        "contents": [
+                                            {
+                                                "type": "text",
+                                                "text": "📍  "+address[i],
+                                                "color": "#ffffff",
+                                                "contents": [],
+                                                "wrap": True
+                                            },
+                                            {
+                                                "type": "text",
+                                                "text": "☎️   "+tele[i],
+                                                "color": "#ffffff"
+                                            }
+                                        ],
+                                        "paddingAll": "lg",
+                                        "backgroundColor": "#ffffff1A",
+                                        "cornerRadius": "none",
+                                        "margin": "none",
+                                        "spacing": "sm"
+                                    }
+                                ]
+                            }
+                        ],
+                        "paddingAll": "20px",
+                        "backgroundColor": "#3c8ed7"
+                    }
+                }
+            )
+        bubble_string = {
+            "type": "carousel",
+            "contents": content
+        }
+        s1 = json.dumps(bubble_string)
+        s2 = json.loads(s1)
+        send_flex_message(reply_token, "hello", s2)
+        self.go_back()

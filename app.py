@@ -15,7 +15,7 @@ load_dotenv()
 
 machine = TocMachine(
     states=["user", "state1", "state2",
-            "state3", "search_table", "movie_intro", "select_cinema", "show_time"],
+            "state3", "search_table", "movie_intro", "select_cinema", "show_time", "show_location"],
     transitions=[
         {
             "trigger": "advance",
@@ -24,8 +24,8 @@ machine = TocMachine(
             "conditions": "is_going_to_state1",
         },
         {
-            "trigger": "advance",
-            "source": "user",
+            "trigger": "want",
+            "source": ["state3", "user"],
             "dest": "state2",
             "conditions": "is_going_to_state2",
         },
@@ -60,8 +60,14 @@ machine = TocMachine(
             "conditions": "is_going_to_show_time",
         },
         {
+            "trigger": "where",
+            "source": ["user", "state2", "state3", "search_table", "movie_intro", "select_cinema", "show_time"],
+            "dest": "show_location",
+            "conditions": "is_going_to_show_location",
+        },
+        {
             "trigger": "go_back",
-            "source": ["state1", "state2", "state3", "search_table", "movie_intro", "select_cinema", "show_time"],
+            "source": ["state1", "state2", "state3", "search_table", "movie_intro", "select_cinema", "show_time", "show_location"],
             "dest": "user"
         },
 
@@ -133,11 +139,17 @@ def webhook_handler():
         print(type(event))
         if isinstance(event, PostbackEvent):
 
-            if "#" in event.postback.data:
+            if "intro" event.postback.data:
+                ver = True
+                response = machine.intro(event)
+            elif "#" in event.postback.data:
+                ver = True
                 response = machine.select_cinema(event)
             elif "detail" in event.postback.data:
+                ver = True
                 response = machine.search(event)
             else:
+                ver = True
                 response = machine.show_time(event)
             # print("herewego")
             break
@@ -149,15 +161,24 @@ def webhook_handler():
             continue
         print(f"\nFSM STATE: {machine.state}")
         print(f"REQUEST BODY: \n{body}")
-        if machine.state == "user":
+        if event.message.text == "我要看電影":
+            ver = True
+            response = machine.want(event)
+        elif event.message.text == "影城據點":
+            ver = True
+            response = machine.where(event)
+        else:
+            ver = True
             response = machine.advance(event)
         # if machine.state == "state2":
         #response = machine.search(event)
-        response = machine.intro(event)
-        # if "時刻表" not in event.message.text:
 
-    if response == False:
-        send_text_message(event.reply_token, "Not Entering any State")
+        # if "時刻表" not in event.message.text:
+        if ver == True:
+            ver = False
+            break
+        if response == False:
+            send_text_message(event.reply_token, "")
 
     return "OK"
 
