@@ -1014,10 +1014,9 @@ class TocMachine(GraphMachine):
                                     "type": "image",
                                     "url": "https://images.unsplash.com/photo-1507723714871-f8d4b0d065b8?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzZ8fG1vdmllfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=60",
                                     "size": "full",
-                                    "aspectMode": "cover",
                                     "aspectRatio": "2:3",
-                                    "gravity": "top",
-                                    "position": "absolute"
+                                    "position": "absolute",
+                                    "aspectMode": "cover"
                                 },
                                 {
                                     "type": "box",
@@ -1029,29 +1028,30 @@ class TocMachine(GraphMachine):
                                             "contents": [
                                                 {
                                                     "type": "text",
-                                                    "color": "#ffffff",
-                                                    "text": "板橋大遠百威秀影城",
-                                                    "weight": "bold",
+                                                    "contents": [],
                                                     "size": "xl",
-                                                    "margin": "none",
-                                                    "wrap": True
-                                                },
-                                                {
-                                                    "type": "text",
-                                                    "text": "地址：新北市板橋區新站路28號10樓",
+                                                    "wrap": True,
+                                                    "text": place[i],
                                                     "color": "#ffffff",
-                                                    "wrap": True
+                                                    "weight": "bold",
+                                                    "margin": "none"
                                                 },
                                                 {
                                                     "type": "text",
-                                                    "text": "電話：(02) 7738-6608",
-                                                    "color": "#ffffff"
+                                                    "color": "#ffffffcc",
+                                                    "size": "sm",
+                                                    "text": address[i]
+                                                },
+                                                {
+                                                    "type": "text",
+                                                    "color": "#ffffffcc",
+                                                    "size": "sm",
+                                                    "text": tele[i]
                                                 },
                                                 {
                                                     "type": "box",
                                                     "layout": "baseline",
                                                     "contents": [],
-                                                    "spacing": "none",
                                                     "margin": "lg"
                                                 },
                                                 {
@@ -1061,34 +1061,34 @@ class TocMachine(GraphMachine):
                                                     "type": "box",
                                                     "layout": "baseline",
                                                     "contents": [],
-                                                    "spacing": "none",
                                                     "margin": "lg"
                                                 },
                                                 {
                                                     "type": "text",
-                                                    "color": "#ffffff",
-                                                    "text": "板橋大遠百威秀影城",
-                                                    "weight": "bold",
+                                                    "contents": [],
                                                     "size": "xl",
-                                                    "margin": "none",
-                                                    "wrap": True
-                                                },
-                                                {
-                                                    "type": "text",
-                                                    "text": "地址：新北市板橋區新站路28號10樓",
+                                                    "wrap": True,
+                                                    "text": place[i+1],
                                                     "color": "#ffffff",
-                                                    "wrap": True
+                                                    "weight": "bold",
+                                                    "margin": "none"
                                                 },
                                                 {
                                                     "type": "text",
-                                                    "text": "電話：(02) 7738-6608",
-                                                    "color": "#ffffff"
+                                                    "color": "#ffffffcc",
+                                                    "size": "sm",
+                                                    "text": address[i+1]
+                                                },
+                                                {
+                                                    "type": "text",
+                                                    "color": "#ffffffcc",
+                                                    "size": "sm",
+                                                    "text": tele[i+1]
                                                 },
                                                 {
                                                     "type": "box",
                                                     "layout": "baseline",
                                                     "contents": [],
-                                                    "spacing": "none",
                                                     "margin": "lg"
                                                 },
                                                 {
@@ -1098,34 +1098,34 @@ class TocMachine(GraphMachine):
                                                     "type": "box",
                                                     "layout": "baseline",
                                                     "contents": [],
-                                                    "spacing": "none",
                                                     "margin": "lg"
                                                 },
                                                 {
                                                     "type": "text",
-                                                    "color": "#ffffff",
-                                                    "text": "板橋大遠百威秀影城",
-                                                    "weight": "bold",
+                                                    "contents": [],
                                                     "size": "xl",
-                                                    "margin": "none",
-                                                    "wrap": True
-                                                },
-                                                {
-                                                    "type": "text",
-                                                    "text": "地址：新北市板橋區新站路28號10樓",
+                                                    "wrap": True,
+                                                    "text": place[i+2],
                                                     "color": "#ffffff",
-                                                    "wrap": True
+                                                    "weight": "bold",
+                                                    "margin": "none"
                                                 },
                                                 {
                                                     "type": "text",
-                                                    "text": "電話：(02) 7738-6608",
-                                                    "color": "#ffffff"
+                                                    "color": "#ffffffcc",
+                                                    "size": "sm",
+                                                    "text": address[i+2]
+                                                },
+                                                {
+                                                    "type": "text",
+                                                    "color": "#ffffffcc",
+                                                    "size": "sm",
+                                                    "text": tele[i+2]
                                                 },
                                                 {
                                                     "type": "box",
                                                     "layout": "baseline",
                                                     "contents": [],
-                                                    "spacing": "none",
                                                     "margin": "lg"
                                                 },
                                                 {
@@ -1135,59 +1135,65 @@ class TocMachine(GraphMachine):
                                                     "type": "box",
                                                     "layout": "baseline",
                                                     "contents": [],
-                                                    "spacing": "none",
                                                     "margin": "lg"
                                                 },
                                                 {
                                                     "type": "text",
-                                                    "color": "#ffffff",
-                                                    "text": "板橋大遠百威秀影城",
-                                                    "weight": "bold",
+                                                    "contents": [],
                                                     "size": "xl",
-                                                    "margin": "none",
-                                                    "wrap": True
-                                                },
-                                                {
-                                                    "type": "text",
-                                                    "text": "地址：新北市板橋區新站路28號10樓",
+                                                    "wrap": True,
+                                                    "text": place[i+3],
                                                     "color": "#ffffff",
-                                                    "wrap": True
+                                                    "weight": "bold",
+                                                    "margin": "none"
                                                 },
                                                 {
                                                     "type": "text",
-                                                    "text": "電話：(02) 7738-6608",
-                                                    "color": "#ffffff"
+                                                    "color": "#ffffffcc",
+                                                    "size": "sm",
+                                                    "text": address[i+3]
+                                                },
+                                                {
+                                                    "type": "text",
+                                                    "color": "#ffffffcc",
+                                                    "size": "sm",
+                                                    "text": tele[i+3]
                                                 },
                                                 {
                                                     "type": "box",
                                                     "layout": "baseline",
                                                     "contents": [],
-                                                    "spacing": "none",
                                                     "margin": "lg"
                                                 }
                                             ],
-                                            "position": "absolute",
+                                            "spacing": "none",
+                                            "paddingAll": "xs",
                                             "offsetStart": "xxl",
                                             "offsetTop": "xxl",
-                                            "spacing": "none",
-                                            "paddingAll": "xs"
+                                            "position": "absolute"
                                         }
                                     ],
-                                    "position": "absolute",
-                                    "offsetBottom": "none",
-                                    "offsetStart": "0px",
-                                    "offsetEnd": "0px",
-                                    "backgroundColor": "#00000080",
-                                    "paddingAll": "20px",
-                                    "paddingTop": "320px",
-                                    "offsetTop": "none",
+                                    "position": "relative",
                                     "spacing": "none",
                                     "margin": "none",
+                                    "paddingAll": "20px",
+                                    "paddingTop": "320px",
+                                    "backgroundColor": "#00000080",
+                                    "offsetEnd": "0px",
+                                    "offsetStart": "0px",
+                                    "offsetBottom": "none",
+                                    "offsetTop": "none",
+                                    "alignItems": "flex-start",
                                     "cornerRadius": "none",
-                                    "alignItems": "flex-start"
+                                    "height": "400px"
                                 }
                             ],
-                            "paddingAll": "0px"
+                            "paddingAll": "0px",
+                            "backgroundColor": "#464F69",
+                            "offsetTop": "none",
+                            "offsetStart": "none",
+                            "offsetEnd": "none",
+                            "height": "400px"
                         }
                     }
                 )
