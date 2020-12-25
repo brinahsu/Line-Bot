@@ -1063,7 +1063,7 @@ class TocMachine(GraphMachine):
                                                 "type": "text",
                                                 "contents": [],
                                                 "size": "xl",
-                                                "wrap": true,
+                                                "wrap": True,
                                                 "color": "#ffffff",
                                                 "weight": "bold",
                                                 "text": place[i]
@@ -1078,7 +1078,7 @@ class TocMachine(GraphMachine):
                                                 "text": "📍 "+address[i],
                                                 "color": "#ffffff",
                                                 "contents": [],
-                                                "wrap": true
+                                                "wrap": True
                                             },
                                             {
                                                 "type": "text",
