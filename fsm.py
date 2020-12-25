@@ -11,10 +11,6 @@ class TocMachine(GraphMachine):
     def __init__(self, **machine_configs):
         self.machine = GraphMachine(model=self, **machine_configs)
 
-    def is_going_to_state1(self, event):
-        text = event.message.text
-        return text.lower() == "go to state1"
-
     def is_going_to_state2(self, event):
         text = event.message.text
         return text.lower() == "我要看電影"
@@ -42,16 +38,6 @@ class TocMachine(GraphMachine):
     def is_going_to_show_location(self, event):
         text = event.message.text
         return text.lower() == "影城據點"
-
-    def on_enter_state1(self, event):
-        print("I'm entering state1")
-
-        reply_token = event.reply_token
-        send_sticker_message(reply_token, "1", "2")
-        self.go_back()
-
-    def on_exit_state1(self):
-        print("Leaving state1")
 
     def on_enter_state2(self, event):
         print("I'm entering state2")
@@ -678,9 +664,6 @@ class TocMachine(GraphMachine):
         send_flex_message(reply_token, "hello", s2)
         # self.go_back()
 
-    """def on_exit_state2(self):
-        print("Leaving state2")"""
-
     def on_enter_state3(self, event):
         print("I'm entering state3")
 
@@ -826,9 +809,6 @@ class TocMachine(GraphMachine):
         s2 = json.loads(s1)
         send_flex_message(reply_token, "hello", s2)
         # self.go_back()
-
-    """def on_exit_search_table(self):
-        print("Leaving search table")"""
 
     def on_enter_movie_intro(self, event):
         print("I'm entering movie intro")
@@ -1018,9 +998,9 @@ class TocMachine(GraphMachine):
         batas = datas.find_all("p", class_="icon-phone")
         for bata in batas:
             tele.append("電話"+bata.text[4:])
-        place.append("")
-        address.append("")
-        tele.append("")
+        place.append(" ")
+        address.append(" ")
+        tele.append(" ")
         for i, data in enumerate(place):
             if i % 4 == 0:
                 content.append(
