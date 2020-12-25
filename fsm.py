@@ -1189,7 +1189,7 @@ class TocMachine(GraphMachine):
                             ],
                             "paddingAll": "0px"
                         }
-                    },
+                    }
                 )
         bubble_string = {
             "type": "carousel",
