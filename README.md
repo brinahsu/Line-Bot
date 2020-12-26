@@ -1,38 +1,33 @@
-# TOC Project 2020
+# 威秀小幫手
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/dc7fa47fcd809b99d087/maintainability)](https://codeclimate.com/github/NCKU-CCS/TOC-Project-2020/maintainability)
-
-[![Known Vulnerabilities](https://snyk.io/test/github/NCKU-CCS/TOC-Project-2020/badge.svg)](https://snyk.io/test/github/NCKU-CCS/TOC-Project-2020)
-
-
-Template Code for TOC Project 2020
+Line Bot Code for TOC Project 2020
 
 A Line bot based on a finite state machine
 
-More details in the [Slides](https://hackmd.io/@TTW/ToC-2019-Project#) and [FAQ](https://hackmd.io/s/B1Xw7E8kN)
 
-## Setup
+## 功能簡介
 
-### Prerequisite
-* Python 3.6
-* Pipenv
-* Facebook Page and App
-* HTTPS Server
+### 歡迎訊息
+![welcome](./img/IMG_0742.PNG)
 
-#### Install Dependency
-```sh
-pip3 install pipenv
+### 影城據點查詢
+![where](./img/IMG_0748.PNG)
 
-pipenv --three
+### 熱映中電影
+![preview](./img/IMG_0743.PNG)
 
-pipenv install
+### 電影劇情簡介
+![introduction](./img/IMG_0744.PNG)
 
-pipenv shell
-```
+### 電影版本選擇
+![version](./img/IMG_0745.PNG)
 
-* pygraphviz (For visualizing Finite State Machine)
-    * [Setup pygraphviz on Ubuntu](http://www.jianshu.com/p/a3da7ecc5303)
-	* [Note: macOS Install error](https://github.com/pygraphviz/pygraphviz/issues/100)
+### 影城選擇
+![place](./img/IMG_0746.PNG)
+
+### 時刻表顯示
+![time](./img/IMG_0747.PNG)
+
 
 
 #### Secret Data
