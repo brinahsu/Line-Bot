@@ -8,7 +8,7 @@ A Line bot based on a finite state machine
 ## 功能簡介
 
 ### 歡迎訊息
-![welcome](./img/IMG_0742.PNG)
+<img src="./img/IMG_0742.PNG" width="50%" height="50%" />
 
 ### 影城據點查詢
 ![where](./img/IMG_0748.PNG)
