@@ -11,22 +11,22 @@ A Line bot based on a finite state machine
 <img src="./img/IMG_0742.PNG" width="50%" height="50%" />
 
 ### 影城據點查詢
-![where](./img/IMG_0748.PNG)
+<img src="./img/IMG_0748.PNG" width="50%" height="50%" />
 
 ### 熱映中電影
-![preview](./img/IMG_0743.PNG)
+<img src="./img/IMG_0743.PNG" width="50%" height="50%" />
 
 ### 電影劇情簡介
-![introduction](./img/IMG_0744.PNG)
+<img src="./img/IMG_0744.PNG" width="50%" height="50%" />
 
 ### 電影版本選擇
-![version](./img/IMG_0745.PNG)
+<img src="./img/IMG_0745.PNG" width="50%" height="50%" />
 
 ### 影城選擇
-![place](./img/IMG_0746.PNG)
+<img src="./img/IMG_0746.PNG" width="50%" height="50%" />
 
 ### 時刻表顯示
-![time](./img/IMG_0747.PNG)
+<img src="./img/IMG_0747.PNG" width="50%" height="50%" />
 
 
 
