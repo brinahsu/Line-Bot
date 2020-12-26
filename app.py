@@ -25,7 +25,7 @@ machine = TocMachine(
         },
         {
             "trigger": "advance",
-            "source": ["preview", "user", "select_versions", "movie_intro", "select_cinema", "show_time", "show_location"],
+            "source": ["user" "movie_intro", "show_location"],
             "dest": "welcome",
             "conditions": "is_going_to_welcome",
         },
@@ -127,7 +127,6 @@ def webhook_handler():
         events = parser.parse(body, signature)
     except InvalidSignatureError:
         abort(400)
-    ver = False
     response = False
     # if event is MessageEvent and message is TextMessage, then echo text
     for event in events:
@@ -162,7 +161,8 @@ def webhook_handler():
         elif event.message.text == "影城據點":
             ver = True
             response = machine.where(event)
-
+        else:
+            response = machine.advance(event)
         # if machine.state == "state2":
         #response = machine.search(event)
 
