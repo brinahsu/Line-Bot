@@ -10,20 +10,26 @@ A Line bot based on a finite state machine
 ### 歡迎訊息
 <img src="./img/IMG_0742.PNG" width="50%" height="50%" />
 
+
 ### 影城據點查詢
 <img src="./img/IMG_0748.PNG" width="50%" height="50%" />
+
 
 ### 熱映中電影
 <img src="./img/IMG_0743.PNG" width="50%" height="50%" />
 
+
 ### 電影劇情簡介
 <img src="./img/IMG_0744.PNG" width="50%" height="50%" />
+
 
 ### 電影版本選擇
 <img src="./img/IMG_0745.PNG" width="50%" height="50%" />
 
+
 ### 影城選擇
 <img src="./img/IMG_0746.PNG" width="50%" height="50%" />
+
 
 ### 時刻表顯示
 <img src="./img/IMG_0747.PNG" width="50%" height="50%" />
@@ -36,7 +42,7 @@ A Line bot based on a finite state machine
 ## Web Crawling
 使用BeautifulSoup套件實作華納威秀官網的爬蟲，從 https://www.vscinemas.com.tw/vsweb/film/index.aspx 得到熱映中電影的名字，圖片及通往電影簡介的網址
 
-<img src="./img/page2.png" width="50%" height="50%" />
+<img src="./img/page2.png" width="70%" height="70%" />
 
 * user
 	* Input: "go to state1"
