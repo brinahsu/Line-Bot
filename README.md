@@ -10,26 +10,32 @@ A Line bot based on a finite state machine
 ### 歡迎訊息
 <img src="./img/IMG_0742.PNG" width="50%" height="50%" />
 
+<br><br/>
 
 ### 影城據點查詢
 <img src="./img/IMG_0748.PNG" width="50%" height="50%" />
 
+<br><br/>
 
 ### 熱映中電影
 <img src="./img/IMG_0743.PNG" width="50%" height="50%" />
 
+<br><br/>
 
 ### 電影劇情簡介
 <img src="./img/IMG_0744.PNG" width="50%" height="50%" />
 
+<br><br/>
 
 ### 電影版本選擇
 <img src="./img/IMG_0745.PNG" width="50%" height="50%" />
 
+<br><br/>
 
 ### 影城選擇
 <img src="./img/IMG_0746.PNG" width="50%" height="50%" />
 
+<br><br/>
 
 ### 時刻表顯示
 <img src="./img/IMG_0747.PNG" width="50%" height="50%" />
@@ -44,20 +50,17 @@ A Line bot based on a finite state machine
 
 <img src="./img/page2.png" width="100%" height="100%" />
 
-
 <br><br/>
 在電影詳情的網頁得到電影的放映版本(紅框處)和對應的放映影廳(藍框處)
 
 <img src="./img/page3.png" width="100%" height="100%" />
 
-
-
+<br><br/>
 同樣在電影詳情的網頁，選擇放映影廳後得到該影廳的的放映日期(紅框處)和放映時間(藍框處)
 
 <img src="./img/page4.png" width="100%" height="100%" />
 
-
-
+<br><br/>
 在影城介紹的網頁https://www.vscinemas.com.tw/vsweb/theater/index.aspx 裡得到各地影城的名字地址及電話(紅框處)
 
 <img src="./img/page1.png" width="100%" height="100%" />
