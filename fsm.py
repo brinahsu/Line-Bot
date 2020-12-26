@@ -15,11 +15,11 @@ class TocMachine(GraphMachine):
         text = event.message.text
         return text.lower() == "我要看電影"
 
-    def is_going_to_state3(self, event):
+    def is_going_to_welcome(self, event):
         text = event.message.text
         return True
 
-    def is_going_to_search_table(self, event):
+    def is_going_to_select_version(self, event):
         # text = event.message.text
         return True
 
@@ -787,18 +787,18 @@ class TocMachine(GraphMachine):
         send_flex_message(reply_token, "hello", s2)
         # self.go_back()
 
-    def on_enter_state3(self, event):
-        print("I'm entering state3")
+    def on_enter_welcome(self, event):
+        print("I'm entering welcome")
 
         reply_token = event.reply_token
         send_text_message(
             reply_token, "您好！歡迎使用威秀小幫手 \n 🎥 輸入「我要看電影」可以得到最新的電影資訊\n🎥 輸入「影城據點」可以得到華納威秀各個影城資訊")
         self.go_back()
 
-    def on_exit_state3(self):
-        print("Leaving state3")
+    def on_exit_welcome(self):
+        print("Leaving welcome")
 
-    def on_enter_search_table(self, event):
+    def on_enter_select_version(self, event):
         print("I'm entering search table")
 
         reply_token = event.reply_token
@@ -1313,7 +1313,7 @@ class TocMachine(GraphMachine):
                                     "offsetTop": "none",
                                     "alignItems": "flex-start",
                                     "cornerRadius": "none",
-                                    "height": "500px"
+                                    "height": "450px"
                                 }
                             ],
                             "paddingAll": "0px",
@@ -1321,7 +1321,7 @@ class TocMachine(GraphMachine):
                             "offsetTop": "none",
                             "offsetStart": "none",
                             "offsetEnd": "none",
-                            "height": "500px"
+                            "height": "450px"
                         }
                     }
                 )
