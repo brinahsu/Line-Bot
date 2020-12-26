@@ -25,7 +25,7 @@ machine = TocMachine(
         },
         {
             "trigger": "advance",
-            "source": "user",
+            "source": ["preview", "user", "select_versions", "movie_intro", "select_cinema", "show_time", "show_location"],
             "dest": "welcome",
             "conditions": "is_going_to_welcome",
         },
