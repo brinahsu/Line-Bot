@@ -15,35 +15,35 @@ load_dotenv()
 
 machine = TocMachine(
     states=["user", "preview",
-            "state3", "search_table", "movie_intro", "select_cinema", "show_time", "show_location"],
+            "welcome", "select_version", "movie_intro", "select_cinema", "show_time", "show_location"],
     transitions=[
         {
             "trigger": "want",
-            "source": ["state3", "user"],
+            "source": ["welcome", "user"],
             "dest": "preview",
             "conditions": "is_going_to_preview",
         },
         {
             "trigger": "advance",
             "source": "user",
-            "dest": "state3",
-            "conditions": "is_going_to_state3",
+            "dest": "welcome",
+            "conditions": "is_going_to_welcome",
         },
         {
             "trigger": "intro",
-            "source": ["user", "preview", "state3", "search_table", "select_cinema", "show_time"],
+            "source": ["user", "preview", "welcome", "select_version", "select_cinema", "show_time"],
             "dest": "movie_intro",
             "conditions": "is_going_to_movie_intro",
         },
         {
             "trigger": "search",
-            "source": ["user", "preview", "state3", "movie_intro", "select_cinema", "show_time"],
-            "dest": "search_table",
-            "conditions": "is_going_to_search_table",
+            "source": ["user", "preview", "welcome", "movie_intro", "select_cinema", "show_time"],
+            "dest": "select_version",
+            "conditions": "is_going_to_select_version",
         },
         {
             "trigger": "select_cinema",
-            "source": ["search_table"],
+            "source": ["select_version"],
             "dest": "select_cinema",
             "conditions": "is_going_to_select_cinema",
         },
@@ -55,13 +55,13 @@ machine = TocMachine(
         },
         {
             "trigger": "where",
-            "source": ["user", "preview", "state3", "search_table", "movie_intro", "select_cinema", "show_time"],
+            "source": ["user", "preview", "welcome", "select_version", "movie_intro", "select_cinema", "show_time"],
             "dest": "show_location",
             "conditions": "is_going_to_show_location",
         },
         {
             "trigger": "go_back",
-            "source": ["preview", "state3", "search_table", "movie_intro", "select_cinema", "show_time", "show_location"],
+            "source": ["preview", "welcome", "select_versions", "movie_intro", "select_cinema", "show_time", "show_location"],
             "dest": "user"
         },
 

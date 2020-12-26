@@ -784,7 +784,7 @@ class TocMachine(GraphMachine):
         s1 = json.dumps(bubble_string)
         s2 = json.loads(s1)
 
-        send_flex_message(reply_token, "hello", s2)
+        send_flex_message(reply_token, "電影資訊", s2)
         # self.go_back()
 
     def on_enter_welcome(self, event):
@@ -827,7 +827,6 @@ class TocMachine(GraphMachine):
         con = []
         datas = soup.find_all("a", class_="versionFirst")
         for data in datas:
-            # print(title.text)
             pack = ""
             content.append(data.text)
             places = place[index].split('\n')
@@ -836,8 +835,6 @@ class TocMachine(GraphMachine):
                     continue
                 pack += (i+ref[k][0]+ref[k][10:]+"\n")
                 k = k+1
-            print(pack)
-            print(len(pack))
             net.append(data['href'])
             action.append(
                 {
@@ -930,7 +927,7 @@ class TocMachine(GraphMachine):
         }
         s1 = json.dumps(bubble_string)
         s2 = json.loads(s1)
-        send_flex_message(reply_token, "hello", s2)
+        send_flex_message(reply_token, "電影版本選擇", s2)
         # self.go_back()
 
     def on_enter_movie_intro(self, event):
@@ -1061,7 +1058,7 @@ class TocMachine(GraphMachine):
         }
         s1 = json.dumps(bubble_string)
         s2 = json.loads(s1)
-        send_flex_message(reply_token, "hello", s2)
+        send_flex_message(reply_token, "影城選擇", s2)
 
     def on_enter_show_time(self, event):
         print("I'm entering show time")
@@ -1079,8 +1076,6 @@ class TocMachine(GraphMachine):
         time = []
         st = ""
         sti = ""
-        print(index)
-        print(url)
         datas = soup.find("article", id=index)
         data = datas.find_all("h4")
         for i in data:
@@ -1331,5 +1326,5 @@ class TocMachine(GraphMachine):
         }
         s1 = json.dumps(bubble_string)
         s2 = json.loads(s1)
-        send_flex_message(reply_token, "hello", s2)
+        send_flex_message(reply_token, "影城據點", s2)
         self.go_back()
