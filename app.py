@@ -127,7 +127,7 @@ def webhook_handler():
         events = parser.parse(body, signature)
     except InvalidSignatureError:
         abort(400)
-
+    ver = False
     # if event is MessageEvent and message is TextMessage, then echo text
     for event in events:
         print(type(event))
