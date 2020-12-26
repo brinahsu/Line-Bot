@@ -45,6 +45,33 @@ A Line bot based on a finite state machine
 ## Finite State Machine
 ![fsm](./img/show-fsm.png)
 
+## Message Type
+
+1. Text Message:
+   回傳文字訊息給user，「歡迎訊息」、「電影劇情簡介」、「時刻表顯示」均用text message回覆。
+2. Flex Message:
+   可自行設計回覆的內容樣式，不拘束於line提供的template格式。使用Line Developer的Flex Message Simulator設計，點選元件後可以直接從右方修改屬性，左方能立即產生UI。
+   <img src="./img/flex.png" width="100%" height="100%" />
+   <br><br/>
+   完成設計後可按View as JSON，產生的JSON code可加入python程式裡，透過json.dumps()和json.loads()將JSON code轉換成轉換成python line bot sdk裡FlexSendMessage可以接受的dict。
+   ```
+    bubble_string={
+        'type': 'bubble',
+        'direction': 'ltr',
+        'hero': {
+            'type': 'image',
+            'url': 'https://example.com/cafe.jpg',
+            'size': 'full',
+            'aspectRatio': '20:13',
+            'aspectMode': 'cover',
+            'action': { 'type': 'uri', 'uri': 'http://example.com', 'label': 'label' }
+        }
+    }
+	s1 = json.dumps(bubble_string)
+    s2 = json.loads(s1)
+    flex_message = FlexSendMessage(alt_text='hello',contents=s2)
+	```
+
 ## Web Crawling
 使用BeautifulSoup套件實作華納威秀官網的爬蟲，從 https://www.vscinemas.com.tw/vsweb/film/index.aspx 得到熱映中電影的圖片(藍框處)、名字和通往電影詳情的網址(紅框處)。
 
