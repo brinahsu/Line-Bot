@@ -46,7 +46,6 @@ A Line bot based on a finite state machine
 
 
 <br><br/>
-<br><br/>
 在電影詳情的網頁得到電影的放映版本(紅框處)和對應的放映影廳(藍框處)
 
 <img src="./img/page3.png" width="100%" height="100%" />
