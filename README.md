@@ -56,7 +56,7 @@ A Line bot based on a finite state machine
    可自行設計回覆的內容樣式，不拘束於line提供的template格式，「影城據點查詢」、「熱映中電影」、「電影版本選擇」、「影城選擇」都是用Flex Message回覆。使用Line Developer的Flex Message Simulator設計，點選元件後可以直接從右方修改屬性，左方能立即產生UI。
    <img src="./img/flex.png" width="100%" height="100%" />
    <br><br/>
-   完成設計後可按View as JSON，產生的JSON code可加入python程式裡，透過json.dumps()和json.loads()將JSON code轉換成python line bot sdk裡FlexSendMessage可以接受的dict。
+   完成設計後可按View as JSON，產生的JSON code可加入python程式裡，透過 json.dumps()和 json.loads()將JSON code轉換成python line bot sdk裡FlexSendMessage可以接受的dict。
    ```
     bubble_string={
         'type': 'bubble',
