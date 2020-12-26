@@ -40,9 +40,21 @@ A Line bot based on a finite state machine
 ![fsm](./img/show-fsm.png)
 
 ## Web Crawling
-使用BeautifulSoup套件實作華納威秀官網的爬蟲，從 https://www.vscinemas.com.tw/vsweb/film/index.aspx 得到熱映中電影的名字，圖片及通往電影簡介的網址
+使用BeautifulSoup套件實作華納威秀官網的爬蟲，從 https://www.vscinemas.com.tw/vsweb/film/index.aspx 得到熱映中電影的圖片(藍框處)、名字和通往電影詳情的網址(紅框處)。
 
 <img src="./img/page2.png" width="100%" height="100%" />
+
+在電影詳情的網頁得到電影的放映版本(紅框處)和對應的放映影廳(藍框處)
+
+<img src="./img/page3.png" width="100%" height="100%" />
+
+同樣在電影詳情的網頁，選擇放映影廳後得到該影廳的的放映日期(紅框處)和放映時間(藍框處)
+
+<img src="./img/page4.png" width="100%" height="100%" />
+
+在影城介紹的網頁https://www.vscinemas.com.tw/vsweb/theater/index.aspx 裡得到各地影城的名字地址及電話(紅框處)
+
+<img src="./img/page1.png" width="100%" height="100%" />
 
 * user
 	* Input: "go to state1"
