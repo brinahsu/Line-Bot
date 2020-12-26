@@ -161,9 +161,7 @@ def webhook_handler():
         elif event.message.text == "影城據點":
             ver = True
             response = machine.where(event)
-        else:
-            ver = True
-            response = machine.advance(event)
+
         # if machine.state == "state2":
         #response = machine.search(event)
 
@@ -172,7 +170,7 @@ def webhook_handler():
             ver = False
             break
         if response == False:
-            send_text_message(event.reply_token, "")
+            response = machine.advance(event)
 
     return "OK"
 
