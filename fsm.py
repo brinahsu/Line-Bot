@@ -1138,7 +1138,7 @@ class TocMachine(GraphMachine):
                                     "type": "image",
                                     "url": "https://images.unsplash.com/photo-1507723714871-f8d4b0d065b8?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzZ8fG1vdmllfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=60",
                                     "size": "full",
-                                    "aspectRatio": "2:3",
+                                    "aspectRatio": "100:170",
                                     "position": "absolute",
                                     "aspectMode": "cover"
                                 },
@@ -1313,7 +1313,7 @@ class TocMachine(GraphMachine):
                                     "offsetTop": "none",
                                     "alignItems": "flex-start",
                                     "cornerRadius": "none",
-                                    "height": "400px"
+                                    "height": "500px"
                                 }
                             ],
                             "paddingAll": "0px",
@@ -1321,7 +1321,7 @@ class TocMachine(GraphMachine):
                             "offsetTop": "none",
                             "offsetStart": "none",
                             "offsetEnd": "none",
-                            "height": "400px"
+                            "height": "500px"
                         }
                     }
                 )
