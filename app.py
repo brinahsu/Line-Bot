@@ -19,7 +19,7 @@ machine = TocMachine(
     transitions=[
         {
             "trigger": "want",
-            "source": ["welcome", "user", "show_location"],
+            "source": ["welcome", "user", "movie_intro", "show_location", "select_version", "select_cinema", "show_time"],
             "dest": "preview",
             "conditions": "is_going_to_preview",
         },
