@@ -35,6 +35,7 @@ A Line bot based on a finite state machine
 
 ## Web Crawling
 使用BeautifulSoup套件實作華納威秀官網的爬蟲，從 https://www.vscinemas.com.tw/vsweb/film/index.aspx 得到熱映中電影的名字，圖片及通往電影簡介的網址
+
 <img src="./img/page2.png" width="50%" height="50%" />
 
 * user
