@@ -792,7 +792,7 @@ class TocMachine(GraphMachine):
 
         reply_token = event.reply_token
         send_text_message(
-            reply_token, "您好！歡迎使用威秀小幫手 \n 🎥 輸入「我要看電影」可以得到最新的電影資訊\n🎥 輸入「影城據點」可以得到華納威秀各個影城資訊")
+            reply_token, "您好！歡迎使用威秀小幫手 \n🎬 輸入「我要看電影」可以得到最新的電影資訊\n🎥 輸入「影城據點」可以得到華納威秀各個影城資訊")
         self.go_back()
 
     def on_exit_welcome(self):
