@@ -946,7 +946,6 @@ class TocMachine(GraphMachine):
             st += data.text
             st += "\n\n"
         send_text_message(reply_token, st)
-        self.go_back()
 
     def on_enter_select_cinema(self, event):
         print("I'm entering select cinema")
