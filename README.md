@@ -75,7 +75,7 @@ A Line bot based on a finite state machine
     flex_message = FlexSendMessage(alt_text='hello',contents=s2)
 	```
 ## Postback Event
-因為我的每個state必須知道上個state的選擇，例如：按下「熱映中電影」的「時刻表」按鈕後，bot必須知道使用者按的是哪部電影的「時刻表」按鈕，才能再繼續找到該電影提供的版本，並再找到該版本放映的地點，因此我把button的action做成postback，postback.data可以把所需的資料透過postback event傳給下一個state。
+因為每個state必須知道上個state使用者的選擇，例如：按下「熱映中電影」的「時刻表」按鈕後，bot必須知道使用者按的是哪部電影的「時刻表」按鈕，才能再繼續找到該電影提供的版本，並再找到該版本放映的地點，因此我把button的action做成postback，利用postback.data把使用者的選擇透過postback event傳給往後的state。
 ```
 "type": "button",
         "action": {
