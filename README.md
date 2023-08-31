@@ -17,27 +17,27 @@ A Line bot based on a finite state machine
 
 <br><br/>
 
-### 熱映中電影
+### Currently Showing Movies
 <img src="./img/IMG_0743.PNG" width="50%" height="50%" />
 
 <br><br/>
 
-### 電影劇情簡介
+### About the Film
 <img src="./img/IMG_0744.PNG" width="50%" height="50%" />
 
 <br><br/>
 
-### 電影版本選擇
+### Movie Version
 <img src="./img/IMG_0745.PNG" width="50%" height="50%" />
 
 <br><br/>
 
-### 影城選擇
+### Choose Location
 <img src="./img/IMG_0746.PNG" width="50%" height="50%" />
 
 <br><br/>
 
-### 時刻表顯示
+### Show Movie Schedule
 <img src="./img/IMG_0747.PNG" width="50%" height="50%" />
 
 
