@@ -1,18 +1,18 @@
-# 威秀小幫手
+# Magic Movie Bot
 
 Line Bot Code for TOC Project 2020
 
 A Line bot based on a finite state machine
 
 
-## 功能簡介
+## Functions
 
-### 歡迎訊息
+### Welcome Message
 <img src="./img/IMG_0742.PNG" width="50%" height="50%" />
 
 <br><br/>
 
-### 影城據點查詢
+### Find Theater Location
 <img src="./img/IMG_0748.PNG" width="50%" height="50%" />
 
 <br><br/>
